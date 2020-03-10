@@ -1,1 +1,1 @@
-# Spark
+Spark : Basically Spark is a framework - which provides a number of inter-connected platforms, systems and standards for Big Data projects. Spark is open-source and under the wing of the Apache Software Foundation. Spark is lightning fast cluster computing tool. Apache Spark runs applications up to 100x faster in memory and 10x faster on disk than Map-Reduce. Because of reducing the number of read/write cycle to disk and storing intermediate data in-memory Spark makes it possible.
