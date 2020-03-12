@@ -1,0 +1,881 @@
+[cloudera@quickstart retail]$ spark-submit --master yarn --conf spark.ui.port=4043 --num-executors 2 --executor-memory 512M src/main/python/dailyProductRevenueSorted.py
+SLF4J: Class path contains multiple SLF4J bindings.
+SLF4J: Found binding in [jar:file:/usr/lib/zookeeper/lib/slf4j-log4j12-1.7.5.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J: Found binding in [jar:file:/usr/lib/flume-ng/lib/slf4j-log4j12-1.7.5.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J: Found binding in [jar:file:/usr/lib/parquet/lib/slf4j-log4j12-1.7.5.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J: Found binding in [jar:file:/usr/lib/avro/avro-tools-1.7.6-cdh5.13.0.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J: See http://www.slf4j.org/codes.html#multiple_bindings for an explanation.
+SLF4J: Actual binding is of type [org.slf4j.impl.Log4jLoggerFactory]
+20/03/12 10:52:42 INFO spark.SparkContext: Running Spark version 1.6.0
+20/03/12 10:52:43 WARN util.NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+20/03/12 10:52:43 WARN util.Utils: Your hostname, quickstart.cloudera resolves to a loopback address: 127.0.0.1; using 192.168.222.177 instead (on interface eth1)
+20/03/12 10:52:43 WARN util.Utils: Set SPARK_LOCAL_IP if you need to bind to another address
+20/03/12 10:52:43 INFO spark.SecurityManager: Changing view acls to: cloudera
+20/03/12 10:52:43 INFO spark.SecurityManager: Changing modify acls to: cloudera
+20/03/12 10:52:43 INFO spark.SecurityManager: SecurityManager: authentication disabled; ui acls disabled; users with view permissions: Set(cloudera); users with modify permissions: Set(cloudera)
+20/03/12 10:52:44 INFO util.Utils: Successfully started service 'sparkDriver' on port 55609.
+20/03/12 10:52:45 INFO slf4j.Slf4jLogger: Slf4jLogger started
+20/03/12 10:52:45 INFO Remoting: Starting remoting
+20/03/12 10:52:45 INFO Remoting: Remoting started; listening on addresses :[akka.tcp://sparkDriverActorSystem@192.168.222.177:50025]
+20/03/12 10:52:45 INFO Remoting: Remoting now listens on addresses: [akka.tcp://sparkDriverActorSystem@192.168.222.177:50025]
+20/03/12 10:52:45 INFO util.Utils: Successfully started service 'sparkDriverActorSystem' on port 50025.
+20/03/12 10:52:45 INFO spark.SparkEnv: Registering MapOutputTracker
+20/03/12 10:52:45 INFO spark.SparkEnv: Registering BlockManagerMaster
+20/03/12 10:52:45 INFO storage.DiskBlockManager: Created local directory at /tmp/blockmgr-72ce789e-1e4e-4a56-b6bb-d5be14ed6325
+20/03/12 10:52:45 INFO storage.MemoryStore: MemoryStore started with capacity 534.5 MB
+20/03/12 10:52:46 INFO spark.SparkEnv: Registering OutputCommitCoordinator
+20/03/12 10:52:46 INFO server.Server: jetty-8.y.z-SNAPSHOT
+20/03/12 10:52:46 INFO server.AbstractConnector: Started SelectChannelConnector@0.0.0.0:4043
+20/03/12 10:52:46 INFO util.Utils: Successfully started service 'SparkUI' on port 4043.
+20/03/12 10:52:46 INFO ui.SparkUI: Started SparkUI at http://192.168.222.177:4043
+20/03/12 10:52:47 INFO client.RMProxy: Connecting to ResourceManager at /0.0.0.0:8032
+20/03/12 10:52:48 INFO yarn.Client: Requesting a new application from cluster with 1 NodeManagers
+20/03/12 10:52:48 INFO yarn.Client: Verifying our application has not requested more than the maximum memory capability of the cluster (8192 MB per container)
+20/03/12 10:52:48 INFO yarn.Client: Will allocate AM container, with 896 MB memory including 384 MB overhead
+20/03/12 10:52:48 INFO yarn.Client: Setting up container launch context for our AM
+20/03/12 10:52:48 INFO yarn.Client: Setting up the launch environment for our AM container
+20/03/12 10:52:48 INFO yarn.Client: Preparing resources for our AM container
+20/03/12 10:52:50 WARN shortcircuit.DomainSocketFactory: The short-circuit local reads feature cannot be used because libhadoop cannot be loaded.
+20/03/12 10:52:50 INFO yarn.Client: Uploading resource file:/usr/lib/spark/lib/spark-assembly-1.6.0-cdh5.13.0-hadoop2.6.0-cdh5.13.0.jar -> hdfs://quickstart.cloudera:8020/user/cloudera/.sparkStaging/application_1581487397453_0108/spark-assembly-1.6.0-cdh5.13.0-hadoop2.6.0-cdh5.13.0.jar
+20/03/12 10:52:52 INFO yarn.Client: Uploading resource file:/usr/lib/spark/python/lib/pyspark.zip -> hdfs://quickstart.cloudera:8020/user/cloudera/.sparkStaging/application_1581487397453_0108/pyspark.zip
+20/03/12 10:52:52 WARN hdfs.DFSClient: Caught exception 
+java.lang.InterruptedException
+	at java.lang.Object.wait(Native Method)
+	at java.lang.Thread.join(Thread.java:1281)
+	at java.lang.Thread.join(Thread.java:1355)
+	at org.apache.hadoop.hdfs.DFSOutputStream$DataStreamer.closeResponder(DFSOutputStream.java:967)
+	at org.apache.hadoop.hdfs.DFSOutputStream$DataStreamer.endBlock(DFSOutputStream.java:705)
+	at org.apache.hadoop.hdfs.DFSOutputStream$DataStreamer.run(DFSOutputStream.java:894)
+20/03/12 10:52:52 INFO yarn.Client: Uploading resource file:/usr/lib/spark/python/lib/py4j-0.9-src.zip -> hdfs://quickstart.cloudera:8020/user/cloudera/.sparkStaging/application_1581487397453_0108/py4j-0.9-src.zip
+20/03/12 10:52:52 WARN hdfs.DFSClient: Caught exception 
+java.lang.InterruptedException
+	at java.lang.Object.wait(Native Method)
+	at java.lang.Thread.join(Thread.java:1281)
+	at java.lang.Thread.join(Thread.java:1355)
+	at org.apache.hadoop.hdfs.DFSOutputStream$DataStreamer.closeResponder(DFSOutputStream.java:967)
+	at org.apache.hadoop.hdfs.DFSOutputStream$DataStreamer.endBlock(DFSOutputStream.java:705)
+	at org.apache.hadoop.hdfs.DFSOutputStream$DataStreamer.run(DFSOutputStream.java:894)
+20/03/12 10:52:52 INFO yarn.Client: Uploading resource file:/tmp/spark-daadaa23-dc06-4a78-88c7-66380a0d7b2a/__spark_conf__7869104353382133148.zip -> hdfs://quickstart.cloudera:8020/user/cloudera/.sparkStaging/application_1581487397453_0108/__spark_conf__7869104353382133148.zip
+20/03/12 10:52:52 WARN hdfs.DFSClient: Caught exception 
+java.lang.InterruptedException
+	at java.lang.Object.wait(Native Method)
+	at java.lang.Thread.join(Thread.java:1281)
+	at java.lang.Thread.join(Thread.java:1355)
+	at org.apache.hadoop.hdfs.DFSOutputStream$DataStreamer.closeResponder(DFSOutputStream.java:967)
+	at org.apache.hadoop.hdfs.DFSOutputStream$DataStreamer.endBlock(DFSOutputStream.java:705)
+	at org.apache.hadoop.hdfs.DFSOutputStream$DataStreamer.run(DFSOutputStream.java:894)
+20/03/12 10:52:52 INFO spark.SecurityManager: Changing view acls to: cloudera
+20/03/12 10:52:52 INFO spark.SecurityManager: Changing modify acls to: cloudera
+20/03/12 10:52:52 INFO spark.SecurityManager: SecurityManager: authentication disabled; ui acls disabled; users with view permissions: Set(cloudera); users with modify permissions: Set(cloudera)
+20/03/12 10:52:52 INFO yarn.Client: Submitting application 108 to ResourceManager
+20/03/12 10:52:53 INFO impl.YarnClientImpl: Submitted application application_1581487397453_0108
+20/03/12 10:52:54 INFO yarn.Client: Application report for application_1581487397453_0108 (state: ACCEPTED)
+20/03/12 10:52:54 INFO yarn.Client: 
+	 client token: N/A
+	 diagnostics: N/A
+	 ApplicationMaster host: N/A
+	 ApplicationMaster RPC port: -1
+	 queue: root.cloudera
+	 start time: 1583990572995
+	 final status: UNDEFINED
+	 tracking URL: http://quickstart.cloudera:8088/proxy/application_1581487397453_0108/
+	 user: cloudera
+20/03/12 10:52:55 INFO yarn.Client: Application report for application_1581487397453_0108 (state: ACCEPTED)
+20/03/12 10:52:56 INFO yarn.Client: Application report for application_1581487397453_0108 (state: ACCEPTED)
+20/03/12 10:52:57 INFO yarn.Client: Application report for application_1581487397453_0108 (state: ACCEPTED)
+20/03/12 10:52:58 INFO yarn.Client: Application report for application_1581487397453_0108 (state: ACCEPTED)
+20/03/12 10:52:59 INFO yarn.Client: Application report for application_1581487397453_0108 (state: ACCEPTED)
+20/03/12 10:53:00 INFO yarn.Client: Application report for application_1581487397453_0108 (state: ACCEPTED)
+20/03/12 10:53:01 INFO yarn.Client: Application report for application_1581487397453_0108 (state: ACCEPTED)
+20/03/12 10:53:02 INFO yarn.Client: Application report for application_1581487397453_0108 (state: ACCEPTED)
+20/03/12 10:53:03 INFO yarn.Client: Application report for application_1581487397453_0108 (state: ACCEPTED)
+20/03/12 10:53:03 INFO cluster.YarnSchedulerBackend$YarnSchedulerEndpoint: ApplicationMaster registered as NettyRpcEndpointRef(null)
+20/03/12 10:53:03 INFO cluster.YarnClientSchedulerBackend: Add WebUI Filter. org.apache.hadoop.yarn.server.webproxy.amfilter.AmIpFilter, Map(PROXY_HOSTS -> quickstart.cloudera, PROXY_URI_BASES -> http://quickstart.cloudera:8088/proxy/application_1581487397453_0108), /proxy/application_1581487397453_0108
+20/03/12 10:53:03 INFO ui.JettyUtils: Adding filter: org.apache.hadoop.yarn.server.webproxy.amfilter.AmIpFilter
+20/03/12 10:53:04 INFO yarn.Client: Application report for application_1581487397453_0108 (state: ACCEPTED)
+20/03/12 10:53:05 INFO yarn.Client: Application report for application_1581487397453_0108 (state: RUNNING)
+20/03/12 10:53:05 INFO yarn.Client: 
+	 client token: N/A
+	 diagnostics: N/A
+	 ApplicationMaster host: 192.168.222.177
+	 ApplicationMaster RPC port: 0
+	 queue: root.cloudera
+	 start time: 1583990572995
+	 final status: UNDEFINED
+	 tracking URL: http://quickstart.cloudera:8088/proxy/application_1581487397453_0108/
+	 user: cloudera
+20/03/12 10:53:05 INFO cluster.YarnClientSchedulerBackend: Application application_1581487397453_0108 has started running.
+20/03/12 10:53:05 INFO util.Utils: Successfully started service 'org.apache.spark.network.netty.NettyBlockTransferService' on port 47523.
+20/03/12 10:53:05 INFO netty.NettyBlockTransferService: Server created on 47523
+20/03/12 10:53:05 INFO storage.BlockManagerMaster: Trying to register BlockManager
+20/03/12 10:53:05 INFO storage.BlockManagerMasterEndpoint: Registering block manager 192.168.222.177:47523 with 534.5 MB RAM, BlockManagerId(driver, 192.168.222.177, 47523)
+20/03/12 10:53:05 INFO storage.BlockManagerMaster: Registered BlockManager
+20/03/12 10:53:17 INFO cluster.YarnClientSchedulerBackend: SchedulerBackend is ready for scheduling beginning after waiting maxRegisteredResourcesWaitingTime: 30000(ms)
+20/03/12 10:53:17 INFO cluster.YarnClientSchedulerBackend: Registered executor NettyRpcEndpointRef(null) (192.168.222.177:41235) with ID 1
+20/03/12 10:53:17 INFO storage.BlockManagerMasterEndpoint: Registering block manager 192.168.222.177:41395 with 267.3 MB RAM, BlockManagerId(1, 192.168.222.177, 41395)
+20/03/12 10:53:21 INFO cluster.YarnClientSchedulerBackend: Registered executor NettyRpcEndpointRef(null) (192.168.222.177:41238) with ID 2
+20/03/12 10:53:22 INFO storage.BlockManagerMasterEndpoint: Registering block manager 192.168.222.177:48572 with 267.3 MB RAM, BlockManagerId(2, 192.168.222.177, 48572)
+20/03/12 10:53:22 INFO text.TextRelation: Listing hdfs://quickstart.cloudera:8020/InputFiles/retail_db/orders on driver
+20/03/12 10:53:25 INFO text.TextRelation: Listing hdfs://quickstart.cloudera:8020/InputFiles/retail_db/order_items on driver
+20/03/12 10:53:29 INFO storage.MemoryStore: Block broadcast_0 stored as values in memory (estimated size 100.0 KB, free 534.4 MB)
+20/03/12 10:53:29 INFO storage.MemoryStore: Block broadcast_0_piece0 stored as bytes in memory (estimated size 24.6 KB, free 534.4 MB)
+20/03/12 10:53:29 INFO storage.BlockManagerInfo: Added broadcast_0_piece0 in memory on 192.168.222.177:47523 (size: 24.6 KB, free: 534.5 MB)
+20/03/12 10:53:29 INFO spark.SparkContext: Created broadcast 0 from parquet at NativeMethodAccessorImpl.java:-2
+20/03/12 10:53:30 INFO storage.MemoryStore: Block broadcast_1 stored as values in memory (estimated size 212.3 KB, free 534.2 MB)
+20/03/12 10:53:30 INFO storage.MemoryStore: Block broadcast_1_piece0 stored as bytes in memory (estimated size 24.7 KB, free 534.2 MB)
+20/03/12 10:53:30 INFO storage.BlockManagerInfo: Added broadcast_1_piece0 in memory on 192.168.222.177:47523 (size: 24.7 KB, free: 534.5 MB)
+20/03/12 10:53:30 INFO spark.SparkContext: Created broadcast 1 from parquet at NativeMethodAccessorImpl.java:-2
+20/03/12 10:53:30 INFO storage.MemoryStore: Block broadcast_2 stored as values in memory (estimated size 207.4 KB, free 534.0 MB)
+20/03/12 10:53:31 INFO storage.MemoryStore: Block broadcast_2_piece0 stored as bytes in memory (estimated size 24.6 KB, free 534.0 MB)
+20/03/12 10:53:31 INFO storage.BlockManagerInfo: Added broadcast_2_piece0 in memory on 192.168.222.177:47523 (size: 24.6 KB, free: 534.5 MB)
+20/03/12 10:53:31 INFO spark.SparkContext: Created broadcast 2 from parquet at NativeMethodAccessorImpl.java:-2
+20/03/12 10:53:31 INFO storage.MemoryStore: Block broadcast_3 stored as values in memory (estimated size 212.4 KB, free 533.7 MB)
+20/03/12 10:53:31 INFO storage.MemoryStore: Block broadcast_3_piece0 stored as bytes in memory (estimated size 24.7 KB, free 533.7 MB)
+20/03/12 10:53:31 INFO storage.BlockManagerInfo: Added broadcast_3_piece0 in memory on 192.168.222.177:47523 (size: 24.7 KB, free: 534.4 MB)
+20/03/12 10:53:31 INFO spark.SparkContext: Created broadcast 3 from parquet at NativeMethodAccessorImpl.java:-2
+20/03/12 10:53:32 INFO mapred.FileInputFormat: Total input paths to process : 1
+20/03/12 10:53:32 INFO spark.SparkContext: Starting job: run at ThreadPoolExecutor.java:1145
+20/03/12 10:53:32 INFO scheduler.DAGScheduler: Got job 0 (run at ThreadPoolExecutor.java:1145) with 2 output partitions
+20/03/12 10:53:32 INFO scheduler.DAGScheduler: Final stage: ResultStage 0 (run at ThreadPoolExecutor.java:1145)
+20/03/12 10:53:32 INFO scheduler.DAGScheduler: Parents of final stage: List()
+20/03/12 10:53:32 INFO scheduler.DAGScheduler: Missing parents: List()
+20/03/12 10:53:32 INFO scheduler.DAGScheduler: Submitting ResultStage 0 (MapPartitionsRDD[5] at run at ThreadPoolExecutor.java:1145), which has no missing parents
+20/03/12 10:53:32 INFO storage.MemoryStore: Block broadcast_4 stored as values in memory (estimated size 7.7 KB, free 533.7 MB)
+20/03/12 10:53:32 INFO storage.MemoryStore: Block broadcast_4_piece0 stored as bytes in memory (estimated size 4.0 KB, free 533.7 MB)
+20/03/12 10:53:32 INFO storage.BlockManagerInfo: Added broadcast_4_piece0 in memory on 192.168.222.177:47523 (size: 4.0 KB, free: 534.4 MB)
+20/03/12 10:53:32 INFO spark.SparkContext: Created broadcast 4 from broadcast at DAGScheduler.scala:1004
+20/03/12 10:53:32 INFO scheduler.DAGScheduler: Submitting 2 missing tasks from ResultStage 0 (MapPartitionsRDD[5] at run at ThreadPoolExecutor.java:1145) (first 15 tasks are for partitions Vector(0, 1))
+20/03/12 10:53:32 INFO cluster.YarnScheduler: Adding task set 0.0 with 2 tasks
+20/03/12 10:53:33 INFO scheduler.TaskSetManager: Starting task 0.0 in stage 0.0 (TID 0, 192.168.222.177, executor 1, partition 0, RACK_LOCAL, 2177 bytes)
+20/03/12 10:53:33 INFO scheduler.TaskSetManager: Starting task 1.0 in stage 0.0 (TID 1, 192.168.222.177, executor 2, partition 1, RACK_LOCAL, 2177 bytes)
+20/03/12 10:53:33 INFO storage.BlockManagerInfo: Removed broadcast_2_piece0 on 192.168.222.177:47523 in memory (size: 24.6 KB, free: 534.5 MB)
+20/03/12 10:53:33 INFO storage.BlockManagerInfo: Removed broadcast_0_piece0 on 192.168.222.177:47523 in memory (size: 24.6 KB, free: 534.5 MB)
+20/03/12 10:53:34 INFO storage.BlockManagerInfo: Added broadcast_4_piece0 in memory on 192.168.222.177:41395 (size: 4.0 KB, free: 267.3 MB)
+20/03/12 10:53:34 INFO storage.BlockManagerInfo: Added broadcast_4_piece0 in memory on 192.168.222.177:48572 (size: 4.0 KB, free: 267.3 MB)
+20/03/12 10:53:39 INFO storage.BlockManagerInfo: Added broadcast_3_piece0 in memory on 192.168.222.177:48572 (size: 24.7 KB, free: 267.2 MB)
+20/03/12 10:53:39 INFO storage.BlockManagerInfo: Added broadcast_3_piece0 in memory on 192.168.222.177:41395 (size: 24.7 KB, free: 267.2 MB)
+20/03/12 10:53:51 INFO scheduler.TaskSetManager: Finished task 1.0 in stage 0.0 (TID 1) in 18148 ms on 192.168.222.177 (executor 2) (1/2)
+20/03/12 10:53:51 INFO scheduler.DAGScheduler: ResultStage 0 (run at ThreadPoolExecutor.java:1145) finished in 18.218 s
+20/03/12 10:53:51 INFO scheduler.TaskSetManager: Finished task 0.0 in stage 0.0 (TID 0) in 18217 ms on 192.168.222.177 (executor 1) (2/2)
+20/03/12 10:53:51 INFO cluster.YarnScheduler: Removed TaskSet 0.0, whose tasks have all completed, from pool 
+20/03/12 10:53:51 INFO scheduler.DAGScheduler: Job 0 finished: run at ThreadPoolExecutor.java:1145, took 18.651803 s
+20/03/12 10:53:51 INFO codegen.GenerateUnsafeProjection: Code generated in 153.970388 ms
+20/03/12 10:53:52 INFO storage.MemoryStore: Block broadcast_5 stored as values in memory (estimated size 21.3 MB, free 512.8 MB)
+20/03/12 10:53:52 INFO storage.MemoryStore: Block broadcast_5_piece0 stored as bytes in memory (estimated size 1795.3 KB, free 511.0 MB)
+20/03/12 10:53:52 INFO storage.BlockManagerInfo: Added broadcast_5_piece0 in memory on 192.168.222.177:47523 (size: 1795.3 KB, free: 532.7 MB)
+20/03/12 10:53:52 INFO spark.SparkContext: Created broadcast 5 from run at ThreadPoolExecutor.java:1145
+20/03/12 10:53:52 INFO mapred.FileInputFormat: Total input paths to process : 1
+20/03/12 10:53:53 INFO spark.SparkContext: Starting job: parquet at NativeMethodAccessorImpl.java:-2
+20/03/12 10:53:53 INFO scheduler.DAGScheduler: Registering RDD 13 (parquet at NativeMethodAccessorImpl.java:-2)
+20/03/12 10:53:53 INFO scheduler.DAGScheduler: Got job 1 (parquet at NativeMethodAccessorImpl.java:-2) with 2 output partitions
+20/03/12 10:53:53 INFO scheduler.DAGScheduler: Final stage: ResultStage 2 (parquet at NativeMethodAccessorImpl.java:-2)
+20/03/12 10:53:53 INFO scheduler.DAGScheduler: Parents of final stage: List(ShuffleMapStage 1)
+20/03/12 10:53:53 INFO scheduler.DAGScheduler: Missing parents: List(ShuffleMapStage 1)
+20/03/12 10:53:53 INFO scheduler.DAGScheduler: Submitting ShuffleMapStage 1 (MapPartitionsRDD[13] at parquet at NativeMethodAccessorImpl.java:-2), which has no missing parents
+20/03/12 10:53:53 INFO storage.MemoryStore: Block broadcast_6 stored as values in memory (estimated size 15.5 KB, free 511.0 MB)
+20/03/12 10:53:53 INFO storage.MemoryStore: Block broadcast_6_piece0 stored as bytes in memory (estimated size 7.3 KB, free 511.0 MB)
+20/03/12 10:53:53 INFO storage.BlockManagerInfo: Added broadcast_6_piece0 in memory on 192.168.222.177:47523 (size: 7.3 KB, free: 532.7 MB)
+20/03/12 10:53:53 INFO spark.SparkContext: Created broadcast 6 from broadcast at DAGScheduler.scala:1004
+20/03/12 10:53:53 INFO scheduler.DAGScheduler: Submitting 2 missing tasks from ShuffleMapStage 1 (MapPartitionsRDD[13] at parquet at NativeMethodAccessorImpl.java:-2) (first 15 tasks are for partitions Vector(0, 1))
+20/03/12 10:53:53 INFO cluster.YarnScheduler: Adding task set 1.0 with 2 tasks
+20/03/12 10:53:53 INFO scheduler.TaskSetManager: Starting task 0.0 in stage 1.0 (TID 2, 192.168.222.177, executor 1, partition 0, RACK_LOCAL, 2430 bytes)
+20/03/12 10:53:53 INFO scheduler.TaskSetManager: Starting task 1.0 in stage 1.0 (TID 3, 192.168.222.177, executor 2, partition 1, RACK_LOCAL, 2430 bytes)
+20/03/12 10:53:53 INFO storage.BlockManagerInfo: Added broadcast_6_piece0 in memory on 192.168.222.177:41395 (size: 7.3 KB, free: 267.2 MB)
+20/03/12 10:53:53 INFO storage.BlockManagerInfo: Added broadcast_6_piece0 in memory on 192.168.222.177:48572 (size: 7.3 KB, free: 267.2 MB)
+20/03/12 10:53:54 INFO storage.BlockManagerInfo: Added broadcast_5_piece0 in memory on 192.168.222.177:48572 (size: 1795.3 KB, free: 265.5 MB)
+20/03/12 10:53:54 INFO storage.BlockManagerInfo: Added broadcast_5_piece0 in memory on 192.168.222.177:41395 (size: 1795.3 KB, free: 265.5 MB)
+20/03/12 10:53:56 INFO storage.BlockManagerInfo: Added broadcast_1_piece0 in memory on 192.168.222.177:48572 (size: 24.7 KB, free: 265.5 MB)
+20/03/12 10:53:56 INFO storage.BlockManagerInfo: Added broadcast_1_piece0 in memory on 192.168.222.177:41395 (size: 24.7 KB, free: 265.5 MB)
+20/03/12 10:54:01 INFO scheduler.TaskSetManager: Finished task 0.0 in stage 1.0 (TID 2) in 8586 ms on 192.168.222.177 (executor 1) (1/2)
+20/03/12 10:54:01 INFO scheduler.DAGScheduler: ShuffleMapStage 1 (parquet at NativeMethodAccessorImpl.java:-2) finished in 8.669 s
+20/03/12 10:54:01 INFO scheduler.DAGScheduler: looking for newly runnable stages
+20/03/12 10:54:01 INFO scheduler.DAGScheduler: running: Set()
+20/03/12 10:54:01 INFO scheduler.DAGScheduler: waiting: Set(ResultStage 2)
+20/03/12 10:54:01 INFO scheduler.TaskSetManager: Finished task 1.0 in stage 1.0 (TID 3) in 8638 ms on 192.168.222.177 (executor 2) (2/2)
+20/03/12 10:54:01 INFO cluster.YarnScheduler: Removed TaskSet 1.0, whose tasks have all completed, from pool 
+20/03/12 10:54:01 INFO scheduler.DAGScheduler: failed: Set()
+20/03/12 10:54:01 INFO scheduler.DAGScheduler: Submitting ResultStage 2 (MapPartitionsRDD[20] at parquet at NativeMethodAccessorImpl.java:-2), which has no missing parents
+20/03/12 10:54:01 INFO storage.MemoryStore: Block broadcast_7 stored as values in memory (estimated size 17.5 KB, free 511.0 MB)
+20/03/12 10:54:01 INFO storage.MemoryStore: Block broadcast_7_piece0 stored as bytes in memory (estimated size 8.7 KB, free 511.0 MB)
+20/03/12 10:54:01 INFO storage.BlockManagerInfo: Added broadcast_7_piece0 in memory on 192.168.222.177:47523 (size: 8.7 KB, free: 532.7 MB)
+20/03/12 10:54:01 INFO spark.SparkContext: Created broadcast 7 from broadcast at DAGScheduler.scala:1004
+20/03/12 10:54:02 INFO scheduler.DAGScheduler: Submitting 2 missing tasks from ResultStage 2 (MapPartitionsRDD[20] at parquet at NativeMethodAccessorImpl.java:-2) (first 15 tasks are for partitions Vector(0, 1))
+20/03/12 10:54:02 INFO cluster.YarnScheduler: Adding task set 2.0 with 2 tasks
+20/03/12 10:54:02 INFO scheduler.TaskSetManager: Starting task 0.0 in stage 2.0 (TID 4, 192.168.222.177, executor 2, partition 0, NODE_LOCAL, 4842 bytes)
+20/03/12 10:54:02 INFO scheduler.TaskSetManager: Starting task 1.0 in stage 2.0 (TID 5, 192.168.222.177, executor 1, partition 1, NODE_LOCAL, 4842 bytes)
+20/03/12 10:54:02 INFO storage.BlockManagerInfo: Added broadcast_7_piece0 in memory on 192.168.222.177:48572 (size: 8.7 KB, free: 265.4 MB)
+20/03/12 10:54:02 INFO storage.BlockManagerInfo: Added broadcast_7_piece0 in memory on 192.168.222.177:41395 (size: 8.7 KB, free: 265.4 MB)
+20/03/12 10:54:02 INFO spark.MapOutputTrackerMasterEndpoint: Asked to send map output locations for shuffle 0 to 192.168.222.177:41238
+20/03/12 10:54:02 INFO spark.MapOutputTrackerMasterEndpoint: Asked to send map output locations for shuffle 0 to 192.168.222.177:41235
+20/03/12 10:54:02 INFO spark.MapOutputTrackerMaster: Size of output statuses for shuffle 0 is 385 bytes
+20/03/12 10:54:11 INFO scheduler.TaskSetManager: Finished task 1.0 in stage 2.0 (TID 5) in 9333 ms on 192.168.222.177 (executor 1) (1/2)
+20/03/12 10:54:11 INFO scheduler.DAGScheduler: ResultStage 2 (parquet at NativeMethodAccessorImpl.java:-2) finished in 9.392 s
+20/03/12 10:54:11 INFO scheduler.DAGScheduler: Job 1 finished: parquet at NativeMethodAccessorImpl.java:-2, took 18.349718 s
+20/03/12 10:54:11 INFO scheduler.TaskSetManager: Finished task 0.0 in stage 2.0 (TID 4) in 9395 ms on 192.168.222.177 (executor 2) (2/2)
+20/03/12 10:54:11 INFO cluster.YarnScheduler: Removed TaskSet 2.0, whose tasks have all completed, from pool 
+20/03/12 10:54:12 INFO Configuration.deprecation: mapred.job.id is deprecated. Instead, use mapreduce.job.id
+20/03/12 10:54:12 INFO Configuration.deprecation: mapred.tip.id is deprecated. Instead, use mapreduce.task.id
+20/03/12 10:54:12 INFO Configuration.deprecation: mapred.task.id is deprecated. Instead, use mapreduce.task.attempt.id
+20/03/12 10:54:12 INFO Configuration.deprecation: mapred.task.is.map is deprecated. Instead, use mapreduce.task.ismap
+20/03/12 10:54:12 INFO Configuration.deprecation: mapred.task.partition is deprecated. Instead, use mapreduce.task.partition
+20/03/12 10:54:12 INFO parquet.ParquetRelation: Using default output committer for Parquet: parquet.hadoop.ParquetOutputCommitter
+20/03/12 10:54:12 INFO output.FileOutputCommitter: File Output Committer Algorithm version is 1
+20/03/12 10:54:12 INFO output.FileOutputCommitter: FileOutputCommitter skip cleanup _temporary folders under output directory:false, ignore cleanup failures: false
+20/03/12 10:54:12 INFO datasources.DefaultWriterContainer: Using user defined output committer class parquet.hadoop.ParquetOutputCommitter
+20/03/12 10:54:12 INFO output.FileOutputCommitter: File Output Committer Algorithm version is 1
+20/03/12 10:54:12 INFO output.FileOutputCommitter: FileOutputCommitter skip cleanup _temporary folders under output directory:false, ignore cleanup failures: false
+20/03/12 10:54:12 INFO spark.SparkContext: Starting job: parquet at NativeMethodAccessorImpl.java:-2
+20/03/12 10:54:12 INFO scheduler.DAGScheduler: Registering RDD 21 (parquet at NativeMethodAccessorImpl.java:-2)
+20/03/12 10:54:12 INFO scheduler.DAGScheduler: Got job 2 (parquet at NativeMethodAccessorImpl.java:-2) with 2 output partitions
+20/03/12 10:54:12 INFO scheduler.DAGScheduler: Final stage: ResultStage 5 (parquet at NativeMethodAccessorImpl.java:-2)
+20/03/12 10:54:12 INFO scheduler.DAGScheduler: Parents of final stage: List(ShuffleMapStage 4)
+20/03/12 10:54:12 INFO scheduler.DAGScheduler: Missing parents: List(ShuffleMapStage 4)
+20/03/12 10:54:12 INFO scheduler.DAGScheduler: Submitting ShuffleMapStage 4 (MapPartitionsRDD[21] at parquet at NativeMethodAccessorImpl.java:-2), which has no missing parents
+20/03/12 10:54:12 INFO storage.MemoryStore: Block broadcast_8 stored as values in memory (estimated size 33.0 KB, free 511.0 MB)
+20/03/12 10:54:12 INFO storage.MemoryStore: Block broadcast_8_piece0 stored as bytes in memory (estimated size 12.4 KB, free 511.0 MB)
+20/03/12 10:54:12 INFO storage.BlockManagerInfo: Added broadcast_8_piece0 in memory on 192.168.222.177:47523 (size: 12.4 KB, free: 532.7 MB)
+20/03/12 10:54:12 INFO spark.SparkContext: Created broadcast 8 from broadcast at DAGScheduler.scala:1004
+20/03/12 10:54:12 INFO scheduler.DAGScheduler: Submitting 2 missing tasks from ShuffleMapStage 4 (MapPartitionsRDD[21] at parquet at NativeMethodAccessorImpl.java:-2) (first 15 tasks are for partitions Vector(0, 1))
+20/03/12 10:54:12 INFO cluster.YarnScheduler: Adding task set 4.0 with 2 tasks
+20/03/12 10:54:12 INFO scheduler.TaskSetManager: Starting task 0.0 in stage 4.0 (TID 6, 192.168.222.177, executor 2, partition 0, NODE_LOCAL, 4831 bytes)
+20/03/12 10:54:12 INFO scheduler.TaskSetManager: Starting task 1.0 in stage 4.0 (TID 7, 192.168.222.177, executor 1, partition 1, NODE_LOCAL, 4831 bytes)
+20/03/12 10:54:12 INFO storage.BlockManagerInfo: Added broadcast_8_piece0 in memory on 192.168.222.177:48572 (size: 12.4 KB, free: 265.4 MB)
+20/03/12 10:54:12 INFO storage.BlockManagerInfo: Added broadcast_8_piece0 in memory on 192.168.222.177:41395 (size: 12.4 KB, free: 265.4 MB)
+20/03/12 10:54:24 INFO scheduler.TaskSetManager: Finished task 0.0 in stage 4.0 (TID 6) in 11641 ms on 192.168.222.177 (executor 2) (1/2)
+20/03/12 10:54:24 INFO scheduler.DAGScheduler: ShuffleMapStage 4 (parquet at NativeMethodAccessorImpl.java:-2) finished in 11.749 s
+20/03/12 10:54:24 INFO scheduler.DAGScheduler: looking for newly runnable stages
+20/03/12 10:54:24 INFO scheduler.DAGScheduler: running: Set()
+20/03/12 10:54:24 INFO scheduler.DAGScheduler: waiting: Set(ResultStage 5)
+20/03/12 10:54:24 INFO scheduler.DAGScheduler: failed: Set()
+20/03/12 10:54:24 INFO scheduler.TaskSetManager: Finished task 1.0 in stage 4.0 (TID 7) in 11749 ms on 192.168.222.177 (executor 1) (2/2)
+20/03/12 10:54:24 INFO cluster.YarnScheduler: Removed TaskSet 4.0, whose tasks have all completed, from pool 
+20/03/12 10:54:24 INFO scheduler.DAGScheduler: Submitting ResultStage 5 (CoalescedRDD[25] at parquet at NativeMethodAccessorImpl.java:-2), which has no missing parents
+20/03/12 10:54:24 INFO storage.MemoryStore: Block broadcast_9 stored as values in memory (estimated size 93.5 KB, free 510.9 MB)
+20/03/12 10:54:24 INFO storage.MemoryStore: Block broadcast_9_piece0 stored as bytes in memory (estimated size 35.4 KB, free 510.8 MB)
+20/03/12 10:54:24 INFO storage.BlockManagerInfo: Added broadcast_9_piece0 in memory on 192.168.222.177:47523 (size: 35.4 KB, free: 532.7 MB)
+20/03/12 10:54:24 INFO spark.SparkContext: Created broadcast 9 from broadcast at DAGScheduler.scala:1004
+20/03/12 10:54:24 INFO scheduler.DAGScheduler: Submitting 2 missing tasks from ResultStage 5 (CoalescedRDD[25] at parquet at NativeMethodAccessorImpl.java:-2) (first 15 tasks are for partitions Vector(0, 1))
+20/03/12 10:54:24 INFO cluster.YarnScheduler: Adding task set 5.0 with 2 tasks
+20/03/12 10:54:24 INFO scheduler.TaskSetManager: Starting task 0.0 in stage 5.0 (TID 8, 192.168.222.177, executor 1, partition 0, NODE_LOCAL, 4842 bytes)
+20/03/12 10:54:24 INFO scheduler.TaskSetManager: Starting task 1.0 in stage 5.0 (TID 9, 192.168.222.177, executor 2, partition 1, NODE_LOCAL, 4842 bytes)
+20/03/12 10:54:24 INFO storage.BlockManagerInfo: Added broadcast_9_piece0 in memory on 192.168.222.177:41395 (size: 35.4 KB, free: 265.4 MB)
+20/03/12 10:54:24 INFO storage.BlockManagerInfo: Added broadcast_9_piece0 in memory on 192.168.222.177:48572 (size: 35.4 KB, free: 265.4 MB)
+20/03/12 10:54:26 INFO spark.MapOutputTrackerMasterEndpoint: Asked to send map output locations for shuffle 1 to 192.168.222.177:41238
+20/03/12 10:54:26 INFO spark.MapOutputTrackerMaster: Size of output statuses for shuffle 1 is 354 bytes
+20/03/12 10:54:26 INFO spark.MapOutputTrackerMasterEndpoint: Asked to send map output locations for shuffle 1 to 192.168.222.177:41235
+20/03/12 10:54:37 INFO scheduler.TaskSetManager: Finished task 1.0 in stage 5.0 (TID 9) in 12993 ms on 192.168.222.177 (executor 2) (1/2)
+20/03/12 10:54:37 INFO scheduler.TaskSetManager: Finished task 0.0 in stage 5.0 (TID 8) in 13015 ms on 192.168.222.177 (executor 1) (2/2)
+20/03/12 10:54:37 INFO cluster.YarnScheduler: Removed TaskSet 5.0, whose tasks have all completed, from pool 
+20/03/12 10:54:37 INFO scheduler.DAGScheduler: ResultStage 5 (parquet at NativeMethodAccessorImpl.java:-2) finished in 13.010 s
+20/03/12 10:54:37 INFO scheduler.DAGScheduler: Job 2 finished: parquet at NativeMethodAccessorImpl.java:-2, took 25.057847 s
+20/03/12 10:54:37 INFO hadoop.ParquetFileReader: Initiating action with parallelism: 5
+SLF4J: Class path contains multiple SLF4J bindings.
+SLF4J: Found binding in [jar:file:/usr/lib/parquet/lib/parquet-hadoop-bundle-1.5.0-cdh5.13.0.jar!/shaded/parquet/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J: Found binding in [jar:file:/usr/lib/parquet/lib/parquet-format-2.1.0-cdh5.13.0.jar!/shaded/parquet/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J: Found binding in [jar:file:/usr/lib/parquet/lib/parquet-pig-bundle-1.5.0-cdh5.13.0.jar!/shaded/parquet/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J: Found binding in [jar:file:/usr/lib/hive/lib/hive-jdbc-1.1.0-cdh5.13.0-standalone.jar!/shaded/parquet/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J: Found binding in [jar:file:/usr/lib/hive/lib/hive-exec-1.1.0-cdh5.13.0.jar!/shaded/parquet/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J: See http://www.slf4j.org/codes.html#multiple_bindings for an explanation.
+SLF4J: Actual binding is of type [shaded.parquet.org.slf4j.helpers.NOPLoggerFactory]
+20/03/12 10:54:38 INFO storage.BlockManagerInfo: Removed broadcast_9_piece0 on 192.168.222.177:47523 in memory (size: 35.4 KB, free: 532.7 MB)
+20/03/12 10:54:38 INFO storage.BlockManagerInfo: Removed broadcast_9_piece0 on 192.168.222.177:41395 in memory (size: 35.4 KB, free: 265.4 MB)
+20/03/12 10:54:38 INFO storage.BlockManagerInfo: Removed broadcast_9_piece0 on 192.168.222.177:48572 in memory (size: 35.4 KB, free: 265.4 MB)
+20/03/12 10:54:38 INFO spark.ContextCleaner: Cleaned accumulator 26
+20/03/12 10:54:38 INFO storage.BlockManagerInfo: Removed broadcast_8_piece0 on 192.168.222.177:47523 in memory (size: 12.4 KB, free: 532.7 MB)
+20/03/12 10:54:38 INFO storage.BlockManagerInfo: Removed broadcast_8_piece0 on 192.168.222.177:41395 in memory (size: 12.4 KB, free: 265.4 MB)
+20/03/12 10:54:38 INFO storage.BlockManagerInfo: Removed broadcast_8_piece0 on 192.168.222.177:48572 in memory (size: 12.4 KB, free: 265.4 MB)
+20/03/12 10:54:38 INFO spark.ContextCleaner: Cleaned accumulator 25
+20/03/12 10:54:38 INFO storage.BlockManagerInfo: Removed broadcast_7_piece0 on 192.168.222.177:47523 in memory (size: 8.7 KB, free: 532.7 MB)
+20/03/12 10:54:38 INFO storage.BlockManagerInfo: Removed broadcast_7_piece0 on 192.168.222.177:48572 in memory (size: 8.7 KB, free: 265.5 MB)
+20/03/12 10:54:38 INFO storage.BlockManagerInfo: Removed broadcast_7_piece0 on 192.168.222.177:41395 in memory (size: 8.7 KB, free: 265.5 MB)
+20/03/12 10:54:38 INFO spark.ContextCleaner: Cleaned accumulator 24
+20/03/12 10:54:38 INFO storage.BlockManagerInfo: Removed broadcast_6_piece0 on 192.168.222.177:47523 in memory (size: 7.3 KB, free: 532.7 MB)
+20/03/12 10:54:38 INFO storage.BlockManagerInfo: Removed broadcast_6_piece0 on 192.168.222.177:48572 in memory (size: 7.3 KB, free: 265.5 MB)
+20/03/12 10:54:38 INFO storage.BlockManagerInfo: Removed broadcast_6_piece0 on 192.168.222.177:41395 in memory (size: 7.3 KB, free: 265.5 MB)
+20/03/12 10:54:38 INFO spark.ContextCleaner: Cleaned accumulator 23
+20/03/12 10:54:38 INFO storage.BlockManagerInfo: Removed broadcast_4_piece0 on 192.168.222.177:47523 in memory (size: 4.0 KB, free: 532.7 MB)
+20/03/12 10:54:38 INFO storage.BlockManagerInfo: Removed broadcast_4_piece0 on 192.168.222.177:48572 in memory (size: 4.0 KB, free: 265.5 MB)
+20/03/12 10:54:38 INFO storage.BlockManagerInfo: Removed broadcast_4_piece0 on 192.168.222.177:41395 in memory (size: 4.0 KB, free: 265.5 MB)
+20/03/12 10:54:38 INFO spark.ContextCleaner: Cleaned accumulator 22
+20/03/12 10:54:39 WARN hdfs.DFSClient: Caught exception 
+java.lang.InterruptedException
+	at java.lang.Object.wait(Native Method)
+	at java.lang.Thread.join(Thread.java:1281)
+	at java.lang.Thread.join(Thread.java:1355)
+	at org.apache.hadoop.hdfs.DFSOutputStream$DataStreamer.closeResponder(DFSOutputStream.java:967)
+	at org.apache.hadoop.hdfs.DFSOutputStream$DataStreamer.closeInternal(DFSOutputStream.java:935)
+	at org.apache.hadoop.hdfs.DFSOutputStream$DataStreamer.run(DFSOutputStream.java:931)
+20/03/12 10:54:39 INFO datasources.DefaultWriterContainer: Job job_202003121054_0000 committed.
+20/03/12 10:54:39 INFO parquet.ParquetRelation: Listing hdfs://quickstart.cloudera:8020/OutputFiles/dailyProductRevenueSorted on driver
+20/03/12 10:54:39 INFO parquet.ParquetRelation: Listing hdfs://quickstart.cloudera:8020/OutputFiles/dailyProductRevenueSorted on driver
+20/03/12 10:54:39 INFO storage.MemoryStore: Block broadcast_10 stored as values in memory (estimated size 207.4 KB, free 510.9 MB)
+20/03/12 10:54:39 INFO storage.MemoryStore: Block broadcast_10_piece0 stored as bytes in memory (estimated size 24.6 KB, free 510.8 MB)
+20/03/12 10:54:39 INFO storage.BlockManagerInfo: Added broadcast_10_piece0 in memory on 192.168.222.177:47523 (size: 24.6 KB, free: 532.7 MB)
+20/03/12 10:54:39 INFO spark.SparkContext: Created broadcast 10 from take at /home/cloudera/pythondemo/retail/src/main/python/dailyProductRevenueSorted.py:31
+20/03/12 10:54:40 INFO storage.MemoryStore: Block broadcast_11 stored as values in memory (estimated size 212.3 KB, free 510.6 MB)
+20/03/12 10:54:40 INFO storage.MemoryStore: Block broadcast_11_piece0 stored as bytes in memory (estimated size 24.7 KB, free 510.6 MB)
+20/03/12 10:54:40 INFO storage.BlockManagerInfo: Added broadcast_11_piece0 in memory on 192.168.222.177:47523 (size: 24.7 KB, free: 532.7 MB)
+20/03/12 10:54:40 INFO spark.SparkContext: Created broadcast 11 from take at /home/cloudera/pythondemo/retail/src/main/python/dailyProductRevenueSorted.py:31
+20/03/12 10:54:40 INFO storage.MemoryStore: Block broadcast_12 stored as values in memory (estimated size 207.4 KB, free 510.4 MB)
+20/03/12 10:54:40 INFO storage.MemoryStore: Block broadcast_12_piece0 stored as bytes in memory (estimated size 24.6 KB, free 510.4 MB)
+20/03/12 10:54:40 INFO storage.BlockManagerInfo: Added broadcast_12_piece0 in memory on 192.168.222.177:47523 (size: 24.6 KB, free: 532.7 MB)
+20/03/12 10:54:40 INFO spark.SparkContext: Created broadcast 12 from take at /home/cloudera/pythondemo/retail/src/main/python/dailyProductRevenueSorted.py:31
+20/03/12 10:54:40 INFO storage.MemoryStore: Block broadcast_13 stored as values in memory (estimated size 212.4 KB, free 510.2 MB)
+20/03/12 10:54:40 INFO storage.MemoryStore: Block broadcast_13_piece0 stored as bytes in memory (estimated size 24.7 KB, free 510.1 MB)
+20/03/12 10:54:40 INFO storage.BlockManagerInfo: Added broadcast_13_piece0 in memory on 192.168.222.177:47523 (size: 24.7 KB, free: 532.6 MB)
+20/03/12 10:54:40 INFO spark.SparkContext: Created broadcast 13 from take at /home/cloudera/pythondemo/retail/src/main/python/dailyProductRevenueSorted.py:31
+20/03/12 10:54:40 INFO mapred.FileInputFormat: Total input paths to process : 1
+20/03/12 10:54:40 INFO spark.SparkContext: Starting job: take at /home/cloudera/pythondemo/retail/src/main/python/dailyProductRevenueSorted.py:31
+20/03/12 10:54:40 INFO scheduler.DAGScheduler: Got job 3 (take at /home/cloudera/pythondemo/retail/src/main/python/dailyProductRevenueSorted.py:31) with 2 output partitions
+20/03/12 10:54:40 INFO scheduler.DAGScheduler: Final stage: ResultStage 6 (take at /home/cloudera/pythondemo/retail/src/main/python/dailyProductRevenueSorted.py:31)
+20/03/12 10:54:40 INFO scheduler.DAGScheduler: Parents of final stage: List()
+20/03/12 10:54:40 INFO scheduler.DAGScheduler: Missing parents: List()
+20/03/12 10:54:40 INFO scheduler.DAGScheduler: Submitting ResultStage 6 (MapPartitionsRDD[32] at take at /home/cloudera/pythondemo/retail/src/main/python/dailyProductRevenueSorted.py:31), which has no missing parents
+20/03/12 10:54:40 INFO storage.MemoryStore: Block broadcast_14 stored as values in memory (estimated size 7.7 KB, free 510.1 MB)
+20/03/12 10:54:40 INFO storage.MemoryStore: Block broadcast_14_piece0 stored as bytes in memory (estimated size 4.0 KB, free 510.1 MB)
+20/03/12 10:54:40 INFO storage.BlockManagerInfo: Added broadcast_14_piece0 in memory on 192.168.222.177:47523 (size: 4.0 KB, free: 532.6 MB)
+20/03/12 10:54:40 INFO spark.SparkContext: Created broadcast 14 from broadcast at DAGScheduler.scala:1004
+20/03/12 10:54:40 INFO scheduler.DAGScheduler: Submitting 2 missing tasks from ResultStage 6 (MapPartitionsRDD[32] at take at /home/cloudera/pythondemo/retail/src/main/python/dailyProductRevenueSorted.py:31) (first 15 tasks are for partitions Vector(0, 1))
+20/03/12 10:54:40 INFO cluster.YarnScheduler: Adding task set 6.0 with 2 tasks
+20/03/12 10:54:40 INFO scheduler.TaskSetManager: Starting task 0.0 in stage 6.0 (TID 10, 192.168.222.177, executor 2, partition 0, RACK_LOCAL, 2177 bytes)
+20/03/12 10:54:40 INFO scheduler.TaskSetManager: Starting task 1.0 in stage 6.0 (TID 11, 192.168.222.177, executor 1, partition 1, RACK_LOCAL, 2177 bytes)
+20/03/12 10:54:40 INFO storage.BlockManagerInfo: Added broadcast_14_piece0 in memory on 192.168.222.177:41395 (size: 4.0 KB, free: 265.5 MB)
+20/03/12 10:54:40 INFO storage.BlockManagerInfo: Added broadcast_14_piece0 in memory on 192.168.222.177:48572 (size: 4.0 KB, free: 265.5 MB)
+20/03/12 10:54:40 INFO storage.BlockManagerInfo: Added broadcast_13_piece0 in memory on 192.168.222.177:41395 (size: 24.7 KB, free: 265.4 MB)
+20/03/12 10:54:40 INFO storage.BlockManagerInfo: Added broadcast_13_piece0 in memory on 192.168.222.177:48572 (size: 24.7 KB, free: 265.4 MB)
+20/03/12 10:54:42 INFO scheduler.TaskSetManager: Finished task 1.0 in stage 6.0 (TID 11) in 1478 ms on 192.168.222.177 (executor 1) (1/2)
+20/03/12 10:54:42 INFO scheduler.DAGScheduler: ResultStage 6 (take at /home/cloudera/pythondemo/retail/src/main/python/dailyProductRevenueSorted.py:31) finished in 1.540 s
+20/03/12 10:54:42 INFO scheduler.DAGScheduler: Job 3 finished: take at /home/cloudera/pythondemo/retail/src/main/python/dailyProductRevenueSorted.py:31, took 1.589506 s
+20/03/12 10:54:42 INFO scheduler.TaskSetManager: Finished task 0.0 in stage 6.0 (TID 10) in 1539 ms on 192.168.222.177 (executor 2) (2/2)
+20/03/12 10:54:42 INFO cluster.YarnScheduler: Removed TaskSet 6.0, whose tasks have all completed, from pool 
+20/03/12 10:54:42 INFO storage.MemoryStore: Block broadcast_15 stored as values in memory (estimated size 21.3 MB, free 488.9 MB)
+20/03/12 10:54:42 INFO storage.MemoryStore: Block broadcast_15_piece0 stored as bytes in memory (estimated size 1795.3 KB, free 487.1 MB)
+20/03/12 10:54:42 INFO storage.BlockManagerInfo: Added broadcast_15_piece0 in memory on 192.168.222.177:47523 (size: 1795.3 KB, free: 530.9 MB)
+20/03/12 10:54:42 INFO spark.SparkContext: Created broadcast 15 from take at /home/cloudera/pythondemo/retail/src/main/python/dailyProductRevenueSorted.py:31
+20/03/12 10:54:42 INFO mapred.FileInputFormat: Total input paths to process : 1
+20/03/12 10:54:43 INFO spark.SparkContext: Starting job: take at /home/cloudera/pythondemo/retail/src/main/python/dailyProductRevenueSorted.py:31
+20/03/12 10:54:43 INFO scheduler.DAGScheduler: Registering RDD 40 (take at /home/cloudera/pythondemo/retail/src/main/python/dailyProductRevenueSorted.py:31)
+20/03/12 10:54:43 INFO scheduler.DAGScheduler: Got job 4 (take at /home/cloudera/pythondemo/retail/src/main/python/dailyProductRevenueSorted.py:31) with 2 output partitions
+20/03/12 10:54:43 INFO scheduler.DAGScheduler: Final stage: ResultStage 8 (take at /home/cloudera/pythondemo/retail/src/main/python/dailyProductRevenueSorted.py:31)
+20/03/12 10:54:43 INFO scheduler.DAGScheduler: Parents of final stage: List(ShuffleMapStage 7)
+20/03/12 10:54:43 INFO scheduler.DAGScheduler: Missing parents: List(ShuffleMapStage 7)
+20/03/12 10:54:43 INFO scheduler.DAGScheduler: Submitting ShuffleMapStage 7 (MapPartitionsRDD[40] at take at /home/cloudera/pythondemo/retail/src/main/python/dailyProductRevenueSorted.py:31), which has no missing parents
+20/03/12 10:54:43 INFO storage.MemoryStore: Block broadcast_16 stored as values in memory (estimated size 15.5 KB, free 487.1 MB)
+20/03/12 10:54:43 INFO storage.MemoryStore: Block broadcast_16_piece0 stored as bytes in memory (estimated size 7.3 KB, free 487.1 MB)
+20/03/12 10:54:43 INFO storage.BlockManagerInfo: Added broadcast_16_piece0 in memory on 192.168.222.177:47523 (size: 7.3 KB, free: 530.9 MB)
+20/03/12 10:54:43 INFO spark.SparkContext: Created broadcast 16 from broadcast at DAGScheduler.scala:1004
+20/03/12 10:54:43 INFO scheduler.DAGScheduler: Submitting 2 missing tasks from ShuffleMapStage 7 (MapPartitionsRDD[40] at take at /home/cloudera/pythondemo/retail/src/main/python/dailyProductRevenueSorted.py:31) (first 15 tasks are for partitions Vector(0, 1))
+20/03/12 10:54:43 INFO cluster.YarnScheduler: Adding task set 7.0 with 2 tasks
+20/03/12 10:54:43 INFO scheduler.TaskSetManager: Starting task 0.0 in stage 7.0 (TID 12, 192.168.222.177, executor 2, partition 0, RACK_LOCAL, 2430 bytes)
+20/03/12 10:54:43 INFO scheduler.TaskSetManager: Starting task 1.0 in stage 7.0 (TID 13, 192.168.222.177, executor 1, partition 1, RACK_LOCAL, 2430 bytes)
+20/03/12 10:54:43 INFO storage.BlockManagerInfo: Added broadcast_16_piece0 in memory on 192.168.222.177:41395 (size: 7.3 KB, free: 265.4 MB)
+20/03/12 10:54:43 INFO storage.BlockManagerInfo: Added broadcast_16_piece0 in memory on 192.168.222.177:48572 (size: 7.3 KB, free: 265.4 MB)
+20/03/12 10:54:43 INFO storage.BlockManagerInfo: Added broadcast_15_piece0 in memory on 192.168.222.177:41395 (size: 1795.3 KB, free: 263.7 MB)
+20/03/12 10:54:43 INFO storage.BlockManagerInfo: Added broadcast_15_piece0 in memory on 192.168.222.177:48572 (size: 1795.3 KB, free: 263.7 MB)
+20/03/12 10:54:43 INFO storage.BlockManagerInfo: Added broadcast_11_piece0 in memory on 192.168.222.177:48572 (size: 24.7 KB, free: 263.7 MB)
+20/03/12 10:54:43 INFO storage.BlockManagerInfo: Added broadcast_11_piece0 in memory on 192.168.222.177:41395 (size: 24.7 KB, free: 263.7 MB)
+20/03/12 10:54:44 INFO scheduler.TaskSetManager: Finished task 0.0 in stage 7.0 (TID 12) in 1686 ms on 192.168.222.177 (executor 2) (1/2)
+20/03/12 10:54:44 INFO scheduler.DAGScheduler: ShuffleMapStage 7 (take at /home/cloudera/pythondemo/retail/src/main/python/dailyProductRevenueSorted.py:31) finished in 1.767 s
+20/03/12 10:54:44 INFO scheduler.DAGScheduler: looking for newly runnable stages
+20/03/12 10:54:44 INFO scheduler.DAGScheduler: running: Set()
+20/03/12 10:54:44 INFO scheduler.DAGScheduler: waiting: Set(ResultStage 8)
+20/03/12 10:54:44 INFO scheduler.DAGScheduler: failed: Set()
+20/03/12 10:54:44 INFO scheduler.DAGScheduler: Submitting ResultStage 8 (MapPartitionsRDD[47] at take at /home/cloudera/pythondemo/retail/src/main/python/dailyProductRevenueSorted.py:31), which has no missing parents
+20/03/12 10:54:44 INFO scheduler.TaskSetManager: Finished task 1.0 in stage 7.0 (TID 13) in 1769 ms on 192.168.222.177 (executor 1) (2/2)
+20/03/12 10:54:44 INFO cluster.YarnScheduler: Removed TaskSet 7.0, whose tasks have all completed, from pool 
+20/03/12 10:54:45 INFO storage.MemoryStore: Block broadcast_17 stored as values in memory (estimated size 17.5 KB, free 487.1 MB)
+20/03/12 10:54:45 INFO storage.MemoryStore: Block broadcast_17_piece0 stored as bytes in memory (estimated size 8.7 KB, free 487.1 MB)
+20/03/12 10:54:45 INFO storage.BlockManagerInfo: Added broadcast_17_piece0 in memory on 192.168.222.177:47523 (size: 8.7 KB, free: 530.9 MB)
+20/03/12 10:54:45 INFO spark.SparkContext: Created broadcast 17 from broadcast at DAGScheduler.scala:1004
+20/03/12 10:54:45 INFO scheduler.DAGScheduler: Submitting 2 missing tasks from ResultStage 8 (MapPartitionsRDD[47] at take at /home/cloudera/pythondemo/retail/src/main/python/dailyProductRevenueSorted.py:31) (first 15 tasks are for partitions Vector(0, 1))
+20/03/12 10:54:45 INFO cluster.YarnScheduler: Adding task set 8.0 with 2 tasks
+20/03/12 10:54:45 INFO scheduler.TaskSetManager: Starting task 0.0 in stage 8.0 (TID 14, 192.168.222.177, executor 2, partition 0, NODE_LOCAL, 4842 bytes)
+20/03/12 10:54:45 INFO scheduler.TaskSetManager: Starting task 1.0 in stage 8.0 (TID 15, 192.168.222.177, executor 1, partition 1, NODE_LOCAL, 4842 bytes)
+20/03/12 10:54:45 INFO storage.BlockManagerInfo: Added broadcast_17_piece0 in memory on 192.168.222.177:48572 (size: 8.7 KB, free: 263.6 MB)
+20/03/12 10:54:45 INFO storage.BlockManagerInfo: Added broadcast_17_piece0 in memory on 192.168.222.177:41395 (size: 8.7 KB, free: 263.6 MB)
+20/03/12 10:54:45 INFO spark.MapOutputTrackerMasterEndpoint: Asked to send map output locations for shuffle 2 to 192.168.222.177:41238
+20/03/12 10:54:45 INFO spark.MapOutputTrackerMaster: Size of output statuses for shuffle 2 is 385 bytes
+20/03/12 10:54:45 INFO spark.MapOutputTrackerMasterEndpoint: Asked to send map output locations for shuffle 2 to 192.168.222.177:41235
+20/03/12 10:54:49 INFO scheduler.TaskSetManager: Finished task 1.0 in stage 8.0 (TID 15) in 4291 ms on 192.168.222.177 (executor 1) (1/2)
+20/03/12 10:54:49 INFO scheduler.DAGScheduler: ResultStage 8 (take at /home/cloudera/pythondemo/retail/src/main/python/dailyProductRevenueSorted.py:31) finished in 4.301 s
+20/03/12 10:54:49 INFO scheduler.DAGScheduler: Job 4 finished: take at /home/cloudera/pythondemo/retail/src/main/python/dailyProductRevenueSorted.py:31, took 6.195268 s
+20/03/12 10:54:49 INFO scheduler.TaskSetManager: Finished task 0.0 in stage 8.0 (TID 14) in 4317 ms on 192.168.222.177 (executor 2) (2/2)
+20/03/12 10:54:49 INFO cluster.YarnScheduler: Removed TaskSet 8.0, whose tasks have all completed, from pool 
+20/03/12 10:54:49 INFO spark.SparkContext: Starting job: take at /home/cloudera/pythondemo/retail/src/main/python/dailyProductRevenueSorted.py:31
+20/03/12 10:54:49 INFO scheduler.DAGScheduler: Registering RDD 48 (take at /home/cloudera/pythondemo/retail/src/main/python/dailyProductRevenueSorted.py:31)
+20/03/12 10:54:49 INFO scheduler.DAGScheduler: Got job 5 (take at /home/cloudera/pythondemo/retail/src/main/python/dailyProductRevenueSorted.py:31) with 1 output partitions
+20/03/12 10:54:49 INFO scheduler.DAGScheduler: Final stage: ResultStage 11 (take at /home/cloudera/pythondemo/retail/src/main/python/dailyProductRevenueSorted.py:31)
+20/03/12 10:54:49 INFO scheduler.DAGScheduler: Parents of final stage: List(ShuffleMapStage 10)
+20/03/12 10:54:49 INFO scheduler.DAGScheduler: Missing parents: List(ShuffleMapStage 10)
+20/03/12 10:54:49 INFO scheduler.DAGScheduler: Submitting ShuffleMapStage 10 (MapPartitionsRDD[48] at take at /home/cloudera/pythondemo/retail/src/main/python/dailyProductRevenueSorted.py:31), which has no missing parents
+20/03/12 10:54:49 INFO storage.MemoryStore: Block broadcast_18 stored as values in memory (estimated size 33.0 KB, free 487.0 MB)
+20/03/12 10:54:49 INFO storage.MemoryStore: Block broadcast_18_piece0 stored as bytes in memory (estimated size 12.4 KB, free 487.0 MB)
+20/03/12 10:54:49 INFO storage.BlockManagerInfo: Added broadcast_18_piece0 in memory on 192.168.222.177:47523 (size: 12.4 KB, free: 530.8 MB)
+20/03/12 10:54:49 INFO spark.SparkContext: Created broadcast 18 from broadcast at DAGScheduler.scala:1004
+20/03/12 10:54:49 INFO scheduler.DAGScheduler: Submitting 2 missing tasks from ShuffleMapStage 10 (MapPartitionsRDD[48] at take at /home/cloudera/pythondemo/retail/src/main/python/dailyProductRevenueSorted.py:31) (first 15 tasks are for partitions Vector(0, 1))
+20/03/12 10:54:49 INFO cluster.YarnScheduler: Adding task set 10.0 with 2 tasks
+20/03/12 10:54:49 INFO scheduler.TaskSetManager: Starting task 0.0 in stage 10.0 (TID 16, 192.168.222.177, executor 2, partition 0, NODE_LOCAL, 4831 bytes)
+20/03/12 10:54:49 INFO scheduler.TaskSetManager: Starting task 1.0 in stage 10.0 (TID 17, 192.168.222.177, executor 1, partition 1, NODE_LOCAL, 4831 bytes)
+20/03/12 10:54:49 INFO storage.BlockManagerInfo: Added broadcast_18_piece0 in memory on 192.168.222.177:41395 (size: 12.4 KB, free: 263.6 MB)
+20/03/12 10:54:49 INFO storage.BlockManagerInfo: Added broadcast_18_piece0 in memory on 192.168.222.177:48572 (size: 12.4 KB, free: 263.6 MB)
+20/03/12 10:54:54 INFO scheduler.TaskSetManager: Finished task 0.0 in stage 10.0 (TID 16) in 4581 ms on 192.168.222.177 (executor 2) (1/2)
+20/03/12 10:54:54 INFO scheduler.TaskSetManager: Finished task 1.0 in stage 10.0 (TID 17) in 4615 ms on 192.168.222.177 (executor 1) (2/2)
+20/03/12 10:54:54 INFO cluster.YarnScheduler: Removed TaskSet 10.0, whose tasks have all completed, from pool 
+20/03/12 10:54:54 INFO scheduler.DAGScheduler: ShuffleMapStage 10 (take at /home/cloudera/pythondemo/retail/src/main/python/dailyProductRevenueSorted.py:31) finished in 4.598 s
+20/03/12 10:54:54 INFO scheduler.DAGScheduler: looking for newly runnable stages
+20/03/12 10:54:54 INFO scheduler.DAGScheduler: running: Set()
+20/03/12 10:54:54 INFO scheduler.DAGScheduler: waiting: Set(ResultStage 11)
+20/03/12 10:54:54 INFO scheduler.DAGScheduler: failed: Set()
+20/03/12 10:54:54 INFO scheduler.DAGScheduler: Submitting ResultStage 11 (MapPartitionsRDD[52] at take at /home/cloudera/pythondemo/retail/src/main/python/dailyProductRevenueSorted.py:31), which has no missing parents
+20/03/12 10:54:54 INFO storage.MemoryStore: Block broadcast_19 stored as values in memory (estimated size 18.1 KB, free 487.0 MB)
+20/03/12 10:54:54 INFO storage.MemoryStore: Block broadcast_19_piece0 stored as bytes in memory (estimated size 9.0 KB, free 487.0 MB)
+20/03/12 10:54:54 INFO storage.BlockManagerInfo: Added broadcast_19_piece0 in memory on 192.168.222.177:47523 (size: 9.0 KB, free: 530.8 MB)
+20/03/12 10:54:54 INFO spark.SparkContext: Created broadcast 19 from broadcast at DAGScheduler.scala:1004
+20/03/12 10:54:54 INFO scheduler.DAGScheduler: Submitting 1 missing tasks from ResultStage 11 (MapPartitionsRDD[52] at take at /home/cloudera/pythondemo/retail/src/main/python/dailyProductRevenueSorted.py:31) (first 15 tasks are for partitions Vector(0))
+20/03/12 10:54:54 INFO cluster.YarnScheduler: Adding task set 11.0 with 1 tasks
+20/03/12 10:54:54 INFO scheduler.TaskSetManager: Starting task 0.0 in stage 11.0 (TID 18, 192.168.222.177, executor 2, partition 0, NODE_LOCAL, 1999 bytes)
+20/03/12 10:54:54 INFO storage.BlockManagerInfo: Added broadcast_19_piece0 in memory on 192.168.222.177:48572 (size: 9.0 KB, free: 263.6 MB)
+20/03/12 10:54:54 INFO spark.MapOutputTrackerMasterEndpoint: Asked to send map output locations for shuffle 3 to 192.168.222.177:41238
+20/03/12 10:54:54 INFO spark.MapOutputTrackerMaster: Size of output statuses for shuffle 3 is 355 bytes
+20/03/12 10:54:54 INFO scheduler.DAGScheduler: ResultStage 11 (take at /home/cloudera/pythondemo/retail/src/main/python/dailyProductRevenueSorted.py:31) finished in 0.076 s
+20/03/12 10:54:54 INFO scheduler.DAGScheduler: Job 5 finished: take at /home/cloudera/pythondemo/retail/src/main/python/dailyProductRevenueSorted.py:31, took 4.759646 s
+20/03/12 10:54:54 INFO scheduler.TaskSetManager: Finished task 0.0 in stage 11.0 (TID 18) in 94 ms on 192.168.222.177 (executor 2) (1/1)
+20/03/12 10:54:54 INFO cluster.YarnScheduler: Removed TaskSet 11.0, whose tasks have all completed, from pool 
+Row(order_date=u'2013-07-25 00:00:00.0', order_item_product_id=1004, product_revenue=5599.7200000000003)
+Row(order_date=u'2013-07-25 00:00:00.0', order_item_product_id=191, product_revenue=5099.4899999999998)
+Row(order_date=u'2013-07-25 00:00:00.0', order_item_product_id=957, product_revenue=4499.6999999999998)
+Row(order_date=u'2013-07-25 00:00:00.0', order_item_product_id=365, product_revenue=3359.4400000000001)
+Row(order_date=u'2013-07-25 00:00:00.0', order_item_product_id=1073, product_revenue=2999.8499999999999)
+Row(order_date=u'2013-07-25 00:00:00.0', order_item_product_id=1014, product_revenue=2798.8800000000001)
+Row(order_date=u'2013-07-25 00:00:00.0', order_item_product_id=403, product_revenue=1949.8499999999999)
+Row(order_date=u'2013-07-25 00:00:00.0', order_item_product_id=502, product_revenue=1650.0)
+Row(order_date=u'2013-07-25 00:00:00.0', order_item_product_id=627, product_revenue=1079.73)
+Row(order_date=u'2013-07-25 00:00:00.0', order_item_product_id=226, product_revenue=599.99000000000001)
+20/03/12 10:54:54 INFO spark.SparkContext: Invoking stop() from shutdown hook
+20/03/12 10:54:54 INFO handler.ContextHandler: stopped o.s.j.s.ServletContextHandler{/static/sql,null}
+20/03/12 10:54:54 INFO handler.ContextHandler: stopped o.s.j.s.ServletContextHandler{/SQL/execution/json,null}
+20/03/12 10:54:54 INFO handler.ContextHandler: stopped o.s.j.s.ServletContextHandler{/SQL/execution,null}
+20/03/12 10:54:54 INFO handler.ContextHandler: stopped o.s.j.s.ServletContextHandler{/SQL/json,null}
+20/03/12 10:54:54 INFO handler.ContextHandler: stopped o.s.j.s.ServletContextHandler{/SQL,null}
+20/03/12 10:54:54 INFO handler.ContextHandler: stopped o.s.j.s.ServletContextHandler{/metrics/json,null}
+20/03/12 10:54:54 INFO handler.ContextHandler: stopped o.s.j.s.ServletContextHandler{/stages/stage/kill,null}
+20/03/12 10:54:54 INFO handler.ContextHandler: stopped o.s.j.s.ServletContextHandler{/api,null}
+20/03/12 10:54:54 INFO handler.ContextHandler: stopped o.s.j.s.ServletContextHandler{/,null}
+20/03/12 10:54:54 INFO handler.ContextHandler: stopped o.s.j.s.ServletContextHandler{/static,null}
+20/03/12 10:54:54 INFO handler.ContextHandler: stopped o.s.j.s.ServletContextHandler{/executors/threadDump/json,null}
+20/03/12 10:54:54 INFO handler.ContextHandler: stopped o.s.j.s.ServletContextHandler{/executors/threadDump,null}
+20/03/12 10:54:54 INFO handler.ContextHandler: stopped o.s.j.s.ServletContextHandler{/executors/json,null}
+20/03/12 10:54:54 INFO handler.ContextHandler: stopped o.s.j.s.ServletContextHandler{/executors,null}
+20/03/12 10:54:54 INFO handler.ContextHandler: stopped o.s.j.s.ServletContextHandler{/environment/json,null}
+20/03/12 10:54:54 INFO handler.ContextHandler: stopped o.s.j.s.ServletContextHandler{/environment,null}
+20/03/12 10:54:54 INFO handler.ContextHandler: stopped o.s.j.s.ServletContextHandler{/storage/rdd/json,null}
+20/03/12 10:54:54 INFO handler.ContextHandler: stopped o.s.j.s.ServletContextHandler{/storage/rdd,null}
+20/03/12 10:54:54 INFO handler.ContextHandler: stopped o.s.j.s.ServletContextHandler{/storage/json,null}
+20/03/12 10:54:54 INFO handler.ContextHandler: stopped o.s.j.s.ServletContextHandler{/storage,null}
+20/03/12 10:54:54 INFO handler.ContextHandler: stopped o.s.j.s.ServletContextHandler{/stages/pool/json,null}
+20/03/12 10:54:54 INFO handler.ContextHandler: stopped o.s.j.s.ServletContextHandler{/stages/pool,null}
+20/03/12 10:54:54 INFO handler.ContextHandler: stopped o.s.j.s.ServletContextHandler{/stages/stage/json,null}
+20/03/12 10:54:54 INFO handler.ContextHandler: stopped o.s.j.s.ServletContextHandler{/stages/stage,null}
+20/03/12 10:54:54 INFO handler.ContextHandler: stopped o.s.j.s.ServletContextHandler{/stages/json,null}
+20/03/12 10:54:54 INFO handler.ContextHandler: stopped o.s.j.s.ServletContextHandler{/stages,null}
+20/03/12 10:54:54 INFO handler.ContextHandler: stopped o.s.j.s.ServletContextHandler{/jobs/job/json,null}
+20/03/12 10:54:54 INFO handler.ContextHandler: stopped o.s.j.s.ServletContextHandler{/jobs/job,null}
+20/03/12 10:54:54 INFO handler.ContextHandler: stopped o.s.j.s.ServletContextHandler{/jobs/json,null}
+20/03/12 10:54:54 INFO handler.ContextHandler: stopped o.s.j.s.ServletContextHandler{/jobs,null}
+20/03/12 10:54:54 INFO ui.SparkUI: Stopped Spark web UI at http://192.168.222.177:4043
+20/03/12 10:54:54 INFO cluster.YarnClientSchedulerBackend: Interrupting monitor thread
+20/03/12 10:54:54 INFO cluster.YarnClientSchedulerBackend: Shutting down all executors
+20/03/12 10:54:54 INFO cluster.YarnClientSchedulerBackend: Asking each executor to shut down
+20/03/12 10:54:54 INFO cluster.YarnClientSchedulerBackend: Stopped
+20/03/12 10:54:54 INFO spark.MapOutputTrackerMasterEndpoint: MapOutputTrackerMasterEndpoint stopped!
+20/03/12 10:54:54 INFO storage.MemoryStore: MemoryStore cleared
+20/03/12 10:54:54 INFO storage.BlockManager: BlockManager stopped
+20/03/12 10:54:54 INFO storage.BlockManagerMaster: BlockManagerMaster stopped
+20/03/12 10:54:54 INFO scheduler.OutputCommitCoordinator$OutputCommitCoordinatorEndpoint: OutputCommitCoordinator stopped!
+20/03/12 10:54:54 INFO spark.SparkContext: Successfully stopped SparkContext
+20/03/12 10:54:54 INFO util.ShutdownHookManager: Shutdown hook called
+20/03/12 10:54:54 INFO util.ShutdownHookManager: Deleting directory /tmp/spark-daadaa23-dc06-4a78-88c7-66380a0d7b2a
+20/03/12 10:54:54 INFO util.ShutdownHookManager: Deleting directory /tmp/spark-daadaa23-dc06-4a78-88c7-66380a0d7b2a/pyspark-dc1c8c28-a659-4e06-abfb-83867320697d
+20/03/12 10:54:54 INFO remote.RemoteActorRefProvider$RemotingTerminator: Shutting down remote daemon.
+[cloudera@quickstart retail]$ hdfs dfs -rm -R /OutputFiles/dailyProductRevenueSorted
+Deleted /OutputFiles/dailyProductRevenueSorted
+[cloudera@quickstart retail]$ cd src/main/python/
+[cloudera@quickstart python]$ vi dailyProductRevenueSorted.py 
+[cloudera@quickstart python]$ cd ../../..
+[cloudera@quickstart retail]$ spark-submit --master yarn --conf spark.ui.port=4043 --num-executors 2 --executor-memory 512M src/main/python/dailyProductRevenueSorted.py
+SLF4J: Class path contains multiple SLF4J bindings.
+SLF4J: Found binding in [jar:file:/usr/lib/zookeeper/lib/slf4j-log4j12-1.7.5.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J: Found binding in [jar:file:/usr/lib/flume-ng/lib/slf4j-log4j12-1.7.5.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J: Found binding in [jar:file:/usr/lib/parquet/lib/slf4j-log4j12-1.7.5.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J: Found binding in [jar:file:/usr/lib/avro/avro-tools-1.7.6-cdh5.13.0.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J: See http://www.slf4j.org/codes.html#multiple_bindings for an explanation.
+SLF4J: Actual binding is of type [org.slf4j.impl.Log4jLoggerFactory]
+20/03/12 10:58:41 INFO spark.SparkContext: Running Spark version 1.6.0
+20/03/12 10:58:42 WARN util.NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+20/03/12 10:58:43 WARN util.Utils: Your hostname, quickstart.cloudera resolves to a loopback address: 127.0.0.1; using 192.168.222.177 instead (on interface eth1)
+20/03/12 10:58:43 WARN util.Utils: Set SPARK_LOCAL_IP if you need to bind to another address
+20/03/12 10:58:43 INFO spark.SecurityManager: Changing view acls to: cloudera
+20/03/12 10:58:43 INFO spark.SecurityManager: Changing modify acls to: cloudera
+20/03/12 10:58:43 INFO spark.SecurityManager: SecurityManager: authentication disabled; ui acls disabled; users with view permissions: Set(cloudera); users with modify permissions: Set(cloudera)
+20/03/12 10:58:43 INFO util.Utils: Successfully started service 'sparkDriver' on port 54905.
+20/03/12 10:58:44 INFO slf4j.Slf4jLogger: Slf4jLogger started
+20/03/12 10:58:44 INFO Remoting: Starting remoting
+20/03/12 10:58:44 INFO Remoting: Remoting started; listening on addresses :[akka.tcp://sparkDriverActorSystem@192.168.222.177:48532]
+20/03/12 10:58:44 INFO Remoting: Remoting now listens on addresses: [akka.tcp://sparkDriverActorSystem@192.168.222.177:48532]
+20/03/12 10:58:44 INFO util.Utils: Successfully started service 'sparkDriverActorSystem' on port 48532.
+20/03/12 10:58:44 INFO spark.SparkEnv: Registering MapOutputTracker
+20/03/12 10:58:44 INFO spark.SparkEnv: Registering BlockManagerMaster
+20/03/12 10:58:44 INFO storage.DiskBlockManager: Created local directory at /tmp/blockmgr-d13831d8-3b59-4983-a560-ad40b3d38fe1
+20/03/12 10:58:44 INFO storage.MemoryStore: MemoryStore started with capacity 534.5 MB
+20/03/12 10:58:45 INFO spark.SparkEnv: Registering OutputCommitCoordinator
+20/03/12 10:58:46 INFO server.Server: jetty-8.y.z-SNAPSHOT
+20/03/12 10:58:46 INFO server.AbstractConnector: Started SelectChannelConnector@0.0.0.0:4043
+20/03/12 10:58:46 INFO util.Utils: Successfully started service 'SparkUI' on port 4043.
+20/03/12 10:58:46 INFO ui.SparkUI: Started SparkUI at http://192.168.222.177:4043
+20/03/12 10:58:46 INFO client.RMProxy: Connecting to ResourceManager at /0.0.0.0:8032
+20/03/12 10:58:47 INFO yarn.Client: Requesting a new application from cluster with 1 NodeManagers
+20/03/12 10:58:47 INFO yarn.Client: Verifying our application has not requested more than the maximum memory capability of the cluster (8192 MB per container)
+20/03/12 10:58:47 INFO yarn.Client: Will allocate AM container, with 896 MB memory including 384 MB overhead
+20/03/12 10:58:47 INFO yarn.Client: Setting up container launch context for our AM
+20/03/12 10:58:47 INFO yarn.Client: Setting up the launch environment for our AM container
+20/03/12 10:58:47 INFO yarn.Client: Preparing resources for our AM container
+20/03/12 10:58:49 WARN shortcircuit.DomainSocketFactory: The short-circuit local reads feature cannot be used because libhadoop cannot be loaded.
+20/03/12 10:58:49 INFO yarn.Client: Uploading resource file:/usr/lib/spark/lib/spark-assembly-1.6.0-cdh5.13.0-hadoop2.6.0-cdh5.13.0.jar -> hdfs://quickstart.cloudera:8020/user/cloudera/.sparkStaging/application_1581487397453_0109/spark-assembly-1.6.0-cdh5.13.0-hadoop2.6.0-cdh5.13.0.jar
+20/03/12 10:58:52 INFO yarn.Client: Uploading resource file:/usr/lib/spark/python/lib/pyspark.zip -> hdfs://quickstart.cloudera:8020/user/cloudera/.sparkStaging/application_1581487397453_0109/pyspark.zip
+20/03/12 10:58:52 WARN hdfs.DFSClient: Caught exception 
+java.lang.InterruptedException
+	at java.lang.Object.wait(Native Method)
+	at java.lang.Thread.join(Thread.java:1281)
+	at java.lang.Thread.join(Thread.java:1355)
+	at org.apache.hadoop.hdfs.DFSOutputStream$DataStreamer.closeResponder(DFSOutputStream.java:967)
+	at org.apache.hadoop.hdfs.DFSOutputStream$DataStreamer.endBlock(DFSOutputStream.java:705)
+	at org.apache.hadoop.hdfs.DFSOutputStream$DataStreamer.run(DFSOutputStream.java:894)
+20/03/12 10:58:52 INFO yarn.Client: Uploading resource file:/usr/lib/spark/python/lib/py4j-0.9-src.zip -> hdfs://quickstart.cloudera:8020/user/cloudera/.sparkStaging/application_1581487397453_0109/py4j-0.9-src.zip
+20/03/12 10:58:52 WARN hdfs.DFSClient: Caught exception 
+java.lang.InterruptedException
+	at java.lang.Object.wait(Native Method)
+	at java.lang.Thread.join(Thread.java:1281)
+	at java.lang.Thread.join(Thread.java:1355)
+	at org.apache.hadoop.hdfs.DFSOutputStream$DataStreamer.closeResponder(DFSOutputStream.java:967)
+	at org.apache.hadoop.hdfs.DFSOutputStream$DataStreamer.endBlock(DFSOutputStream.java:705)
+	at org.apache.hadoop.hdfs.DFSOutputStream$DataStreamer.run(DFSOutputStream.java:894)
+20/03/12 10:58:52 INFO yarn.Client: Uploading resource file:/tmp/spark-1b40cb6d-e611-4787-a875-5cafc16f6f69/__spark_conf__2620681791595589588.zip -> hdfs://quickstart.cloudera:8020/user/cloudera/.sparkStaging/application_1581487397453_0109/__spark_conf__2620681791595589588.zip
+20/03/12 10:58:52 WARN hdfs.DFSClient: Caught exception 
+java.lang.InterruptedException
+	at java.lang.Object.wait(Native Method)
+	at java.lang.Thread.join(Thread.java:1281)
+	at java.lang.Thread.join(Thread.java:1355)
+	at org.apache.hadoop.hdfs.DFSOutputStream$DataStreamer.closeResponder(DFSOutputStream.java:967)
+	at org.apache.hadoop.hdfs.DFSOutputStream$DataStreamer.endBlock(DFSOutputStream.java:705)
+	at org.apache.hadoop.hdfs.DFSOutputStream$DataStreamer.run(DFSOutputStream.java:894)
+20/03/12 10:58:52 INFO spark.SecurityManager: Changing view acls to: cloudera
+20/03/12 10:58:52 INFO spark.SecurityManager: Changing modify acls to: cloudera
+20/03/12 10:58:52 INFO spark.SecurityManager: SecurityManager: authentication disabled; ui acls disabled; users with view permissions: Set(cloudera); users with modify permissions: Set(cloudera)
+20/03/12 10:58:52 INFO yarn.Client: Submitting application 109 to ResourceManager
+20/03/12 10:58:52 INFO impl.YarnClientImpl: Submitted application application_1581487397453_0109
+20/03/12 10:58:53 INFO yarn.Client: Application report for application_1581487397453_0109 (state: ACCEPTED)
+20/03/12 10:58:53 INFO yarn.Client: 
+	 client token: N/A
+	 diagnostics: N/A
+	 ApplicationMaster host: N/A
+	 ApplicationMaster RPC port: -1
+	 queue: root.cloudera
+	 start time: 1583990932643
+	 final status: UNDEFINED
+	 tracking URL: http://quickstart.cloudera:8088/proxy/application_1581487397453_0109/
+	 user: cloudera
+20/03/12 10:58:54 INFO yarn.Client: Application report for application_1581487397453_0109 (state: ACCEPTED)
+20/03/12 10:58:55 INFO yarn.Client: Application report for application_1581487397453_0109 (state: ACCEPTED)
+20/03/12 10:58:56 INFO yarn.Client: Application report for application_1581487397453_0109 (state: ACCEPTED)
+20/03/12 10:58:57 INFO yarn.Client: Application report for application_1581487397453_0109 (state: ACCEPTED)
+20/03/12 10:58:58 INFO yarn.Client: Application report for application_1581487397453_0109 (state: ACCEPTED)
+20/03/12 10:58:59 INFO yarn.Client: Application report for application_1581487397453_0109 (state: ACCEPTED)
+20/03/12 10:59:00 INFO yarn.Client: Application report for application_1581487397453_0109 (state: ACCEPTED)
+20/03/12 10:59:01 INFO yarn.Client: Application report for application_1581487397453_0109 (state: ACCEPTED)
+20/03/12 10:59:02 INFO yarn.Client: Application report for application_1581487397453_0109 (state: ACCEPTED)
+20/03/12 10:59:03 INFO yarn.Client: Application report for application_1581487397453_0109 (state: ACCEPTED)
+20/03/12 10:59:04 INFO yarn.Client: Application report for application_1581487397453_0109 (state: ACCEPTED)
+20/03/12 10:59:04 INFO cluster.YarnSchedulerBackend$YarnSchedulerEndpoint: ApplicationMaster registered as NettyRpcEndpointRef(null)
+20/03/12 10:59:05 INFO cluster.YarnClientSchedulerBackend: Add WebUI Filter. org.apache.hadoop.yarn.server.webproxy.amfilter.AmIpFilter, Map(PROXY_HOSTS -> quickstart.cloudera, PROXY_URI_BASES -> http://quickstart.cloudera:8088/proxy/application_1581487397453_0109), /proxy/application_1581487397453_0109
+20/03/12 10:59:05 INFO ui.JettyUtils: Adding filter: org.apache.hadoop.yarn.server.webproxy.amfilter.AmIpFilter
+20/03/12 10:59:05 INFO yarn.Client: Application report for application_1581487397453_0109 (state: ACCEPTED)
+20/03/12 10:59:06 INFO yarn.Client: Application report for application_1581487397453_0109 (state: RUNNING)
+20/03/12 10:59:06 INFO yarn.Client: 
+	 client token: N/A
+	 diagnostics: N/A
+	 ApplicationMaster host: 192.168.222.177
+	 ApplicationMaster RPC port: 0
+	 queue: root.cloudera
+	 start time: 1583990932643
+	 final status: UNDEFINED
+	 tracking URL: http://quickstart.cloudera:8088/proxy/application_1581487397453_0109/
+	 user: cloudera
+20/03/12 10:59:06 INFO cluster.YarnClientSchedulerBackend: Application application_1581487397453_0109 has started running.
+20/03/12 10:59:06 INFO util.Utils: Successfully started service 'org.apache.spark.network.netty.NettyBlockTransferService' on port 48639.
+20/03/12 10:59:06 INFO netty.NettyBlockTransferService: Server created on 48639
+20/03/12 10:59:06 INFO storage.BlockManagerMaster: Trying to register BlockManager
+20/03/12 10:59:06 INFO storage.BlockManagerMasterEndpoint: Registering block manager 192.168.222.177:48639 with 534.5 MB RAM, BlockManagerId(driver, 192.168.222.177, 48639)
+20/03/12 10:59:06 INFO storage.BlockManagerMaster: Registered BlockManager
+20/03/12 10:59:16 INFO cluster.YarnClientSchedulerBackend: SchedulerBackend is ready for scheduling beginning after waiting maxRegisteredResourcesWaitingTime: 30000(ms)
+20/03/12 10:59:25 INFO text.TextRelation: Listing hdfs://quickstart.cloudera:8020/InputFiles/retail_db/orders on driver
+20/03/12 10:59:26 INFO cluster.YarnClientSchedulerBackend: Registered executor NettyRpcEndpointRef(null) (192.168.222.177:53391) with ID 1
+20/03/12 10:59:26 INFO storage.BlockManagerMasterEndpoint: Registering block manager 192.168.222.177:44896 with 267.3 MB RAM, BlockManagerId(1, 192.168.222.177, 44896)
+20/03/12 10:59:27 INFO cluster.YarnClientSchedulerBackend: Registered executor NettyRpcEndpointRef(null) (192.168.222.177:53392) with ID 2
+20/03/12 10:59:27 INFO storage.BlockManagerMasterEndpoint: Registering block manager 192.168.222.177:54690 with 267.3 MB RAM, BlockManagerId(2, 192.168.222.177, 54690)
+20/03/12 10:59:30 INFO text.TextRelation: Listing hdfs://quickstart.cloudera:8020/InputFiles/retail_db/order_items on driver
+Output of Daily Product wise Revenue in descending order saved as Parquet format in HDFS /OutputFiles/dailyProductRevenueSorted and sample output printed in the screen : 
+20/03/12 10:59:32 INFO storage.MemoryStore: Block broadcast_0 stored as values in memory (estimated size 100.0 KB, free 534.4 MB)
+20/03/12 10:59:32 INFO storage.MemoryStore: Block broadcast_0_piece0 stored as bytes in memory (estimated size 24.6 KB, free 534.4 MB)
+20/03/12 10:59:32 INFO storage.BlockManagerInfo: Added broadcast_0_piece0 in memory on 192.168.222.177:48639 (size: 24.6 KB, free: 534.5 MB)
+20/03/12 10:59:32 INFO spark.SparkContext: Created broadcast 0 from parquet at NativeMethodAccessorImpl.java:-2
+20/03/12 10:59:32 INFO storage.MemoryStore: Block broadcast_1 stored as values in memory (estimated size 212.3 KB, free 534.2 MB)
+20/03/12 10:59:32 INFO storage.MemoryStore: Block broadcast_1_piece0 stored as bytes in memory (estimated size 24.7 KB, free 534.2 MB)
+20/03/12 10:59:32 INFO storage.BlockManagerInfo: Added broadcast_1_piece0 in memory on 192.168.222.177:48639 (size: 24.7 KB, free: 534.5 MB)
+20/03/12 10:59:32 INFO spark.SparkContext: Created broadcast 1 from parquet at NativeMethodAccessorImpl.java:-2
+20/03/12 10:59:33 INFO storage.MemoryStore: Block broadcast_2 stored as values in memory (estimated size 207.4 KB, free 534.0 MB)
+20/03/12 10:59:33 INFO storage.MemoryStore: Block broadcast_2_piece0 stored as bytes in memory (estimated size 24.6 KB, free 534.0 MB)
+20/03/12 10:59:33 INFO storage.BlockManagerInfo: Added broadcast_2_piece0 in memory on 192.168.222.177:48639 (size: 24.6 KB, free: 534.5 MB)
+20/03/12 10:59:33 INFO spark.SparkContext: Created broadcast 2 from parquet at NativeMethodAccessorImpl.java:-2
+20/03/12 10:59:33 INFO storage.MemoryStore: Block broadcast_3 stored as values in memory (estimated size 212.4 KB, free 533.7 MB)
+20/03/12 10:59:33 INFO storage.MemoryStore: Block broadcast_3_piece0 stored as bytes in memory (estimated size 24.7 KB, free 533.7 MB)
+20/03/12 10:59:33 INFO storage.BlockManagerInfo: Added broadcast_3_piece0 in memory on 192.168.222.177:48639 (size: 24.7 KB, free: 534.4 MB)
+20/03/12 10:59:33 INFO spark.SparkContext: Created broadcast 3 from parquet at NativeMethodAccessorImpl.java:-2
+20/03/12 10:59:33 INFO mapred.FileInputFormat: Total input paths to process : 1
+20/03/12 10:59:34 INFO spark.SparkContext: Starting job: run at ThreadPoolExecutor.java:1145
+20/03/12 10:59:34 INFO scheduler.DAGScheduler: Got job 0 (run at ThreadPoolExecutor.java:1145) with 2 output partitions
+20/03/12 10:59:34 INFO scheduler.DAGScheduler: Final stage: ResultStage 0 (run at ThreadPoolExecutor.java:1145)
+20/03/12 10:59:34 INFO scheduler.DAGScheduler: Parents of final stage: List()
+20/03/12 10:59:34 INFO scheduler.DAGScheduler: Missing parents: List()
+20/03/12 10:59:34 INFO scheduler.DAGScheduler: Submitting ResultStage 0 (MapPartitionsRDD[5] at run at ThreadPoolExecutor.java:1145), which has no missing parents
+20/03/12 10:59:34 INFO storage.MemoryStore: Block broadcast_4 stored as values in memory (estimated size 7.7 KB, free 533.7 MB)
+20/03/12 10:59:34 INFO storage.MemoryStore: Block broadcast_4_piece0 stored as bytes in memory (estimated size 4.0 KB, free 533.7 MB)
+20/03/12 10:59:34 INFO storage.BlockManagerInfo: Added broadcast_4_piece0 in memory on 192.168.222.177:48639 (size: 4.0 KB, free: 534.4 MB)
+20/03/12 10:59:34 INFO spark.SparkContext: Created broadcast 4 from broadcast at DAGScheduler.scala:1004
+20/03/12 10:59:34 INFO scheduler.DAGScheduler: Submitting 2 missing tasks from ResultStage 0 (MapPartitionsRDD[5] at run at ThreadPoolExecutor.java:1145) (first 15 tasks are for partitions Vector(0, 1))
+20/03/12 10:59:34 INFO cluster.YarnScheduler: Adding task set 0.0 with 2 tasks
+20/03/12 10:59:34 INFO scheduler.TaskSetManager: Starting task 0.0 in stage 0.0 (TID 0, 192.168.222.177, executor 1, partition 0, RACK_LOCAL, 2177 bytes)
+20/03/12 10:59:34 INFO scheduler.TaskSetManager: Starting task 1.0 in stage 0.0 (TID 1, 192.168.222.177, executor 2, partition 1, RACK_LOCAL, 2177 bytes)
+20/03/12 10:59:35 INFO storage.BlockManagerInfo: Removed broadcast_2_piece0 on 192.168.222.177:48639 in memory (size: 24.6 KB, free: 534.5 MB)
+20/03/12 10:59:35 INFO storage.BlockManagerInfo: Removed broadcast_0_piece0 on 192.168.222.177:48639 in memory (size: 24.6 KB, free: 534.5 MB)
+20/03/12 10:59:36 INFO storage.BlockManagerInfo: Added broadcast_4_piece0 in memory on 192.168.222.177:54690 (size: 4.0 KB, free: 267.3 MB)
+20/03/12 10:59:36 INFO storage.BlockManagerInfo: Added broadcast_4_piece0 in memory on 192.168.222.177:44896 (size: 4.0 KB, free: 267.3 MB)
+20/03/12 10:59:41 INFO storage.BlockManagerInfo: Added broadcast_3_piece0 in memory on 192.168.222.177:54690 (size: 24.7 KB, free: 267.2 MB)
+20/03/12 10:59:41 INFO storage.BlockManagerInfo: Added broadcast_3_piece0 in memory on 192.168.222.177:44896 (size: 24.7 KB, free: 267.2 MB)
+20/03/12 10:59:52 INFO scheduler.TaskSetManager: Finished task 1.0 in stage 0.0 (TID 1) in 17829 ms on 192.168.222.177 (executor 2) (1/2)
+20/03/12 10:59:52 INFO scheduler.DAGScheduler: ResultStage 0 (run at ThreadPoolExecutor.java:1145) finished in 17.984 s
+20/03/12 10:59:52 INFO scheduler.TaskSetManager: Finished task 0.0 in stage 0.0 (TID 0) in 17978 ms on 192.168.222.177 (executor 1) (2/2)
+20/03/12 10:59:52 INFO cluster.YarnScheduler: Removed TaskSet 0.0, whose tasks have all completed, from pool 
+20/03/12 10:59:52 INFO scheduler.DAGScheduler: Job 0 finished: run at ThreadPoolExecutor.java:1145, took 18.340912 s
+20/03/12 10:59:52 INFO codegen.GenerateUnsafeProjection: Code generated in 136.162063 ms
+20/03/12 10:59:53 INFO storage.MemoryStore: Block broadcast_5 stored as values in memory (estimated size 21.3 MB, free 512.8 MB)
+20/03/12 10:59:53 INFO storage.MemoryStore: Block broadcast_5_piece0 stored as bytes in memory (estimated size 1915.4 KB, free 510.9 MB)
+20/03/12 10:59:53 INFO storage.BlockManagerInfo: Added broadcast_5_piece0 in memory on 192.168.222.177:48639 (size: 1915.4 KB, free: 532.6 MB)
+20/03/12 10:59:53 INFO spark.SparkContext: Created broadcast 5 from run at ThreadPoolExecutor.java:1145
+20/03/12 10:59:53 INFO Configuration.deprecation: mapred.job.id is deprecated. Instead, use mapreduce.job.id
+20/03/12 10:59:53 INFO Configuration.deprecation: mapred.tip.id is deprecated. Instead, use mapreduce.task.id
+20/03/12 10:59:53 INFO Configuration.deprecation: mapred.task.id is deprecated. Instead, use mapreduce.task.attempt.id
+20/03/12 10:59:53 INFO Configuration.deprecation: mapred.task.is.map is deprecated. Instead, use mapreduce.task.ismap
+20/03/12 10:59:53 INFO Configuration.deprecation: mapred.task.partition is deprecated. Instead, use mapreduce.task.partition
+20/03/12 10:59:53 INFO parquet.ParquetRelation: Using default output committer for Parquet: parquet.hadoop.ParquetOutputCommitter
+20/03/12 10:59:53 INFO output.FileOutputCommitter: File Output Committer Algorithm version is 1
+20/03/12 10:59:53 INFO output.FileOutputCommitter: FileOutputCommitter skip cleanup _temporary folders under output directory:false, ignore cleanup failures: false
+20/03/12 10:59:53 INFO datasources.DefaultWriterContainer: Using user defined output committer class parquet.hadoop.ParquetOutputCommitter
+20/03/12 10:59:53 INFO output.FileOutputCommitter: File Output Committer Algorithm version is 1
+20/03/12 10:59:53 INFO output.FileOutputCommitter: FileOutputCommitter skip cleanup _temporary folders under output directory:false, ignore cleanup failures: false
+20/03/12 10:59:53 INFO mapred.FileInputFormat: Total input paths to process : 1
+20/03/12 10:59:53 INFO spark.SparkContext: Starting job: parquet at NativeMethodAccessorImpl.java:-2
+20/03/12 10:59:53 INFO scheduler.DAGScheduler: Got job 1 (parquet at NativeMethodAccessorImpl.java:-2) with 1 output partitions
+20/03/12 10:59:53 INFO scheduler.DAGScheduler: Final stage: ResultStage 1 (parquet at NativeMethodAccessorImpl.java:-2)
+20/03/12 10:59:53 INFO scheduler.DAGScheduler: Parents of final stage: List()
+20/03/12 10:59:53 INFO scheduler.DAGScheduler: Missing parents: List()
+20/03/12 10:59:53 INFO scheduler.DAGScheduler: Submitting ResultStage 1 (CoalescedRDD[16] at parquet at NativeMethodAccessorImpl.java:-2), which has no missing parents
+20/03/12 10:59:53 INFO storage.MemoryStore: Block broadcast_6 stored as values in memory (estimated size 91.9 KB, free 510.8 MB)
+20/03/12 10:59:53 INFO storage.MemoryStore: Block broadcast_6_piece0 stored as bytes in memory (estimated size 34.1 KB, free 510.8 MB)
+20/03/12 10:59:53 INFO storage.BlockManagerInfo: Added broadcast_6_piece0 in memory on 192.168.222.177:48639 (size: 34.1 KB, free: 532.6 MB)
+20/03/12 10:59:53 INFO spark.SparkContext: Created broadcast 6 from broadcast at DAGScheduler.scala:1004
+20/03/12 10:59:53 INFO scheduler.DAGScheduler: Submitting 1 missing tasks from ResultStage 1 (CoalescedRDD[16] at parquet at NativeMethodAccessorImpl.java:-2) (first 15 tasks are for partitions Vector(0))
+20/03/12 10:59:53 INFO cluster.YarnScheduler: Adding task set 1.0 with 1 tasks
+20/03/12 10:59:53 INFO scheduler.TaskSetManager: Starting task 0.0 in stage 1.0 (TID 2, 192.168.222.177, executor 1, partition 0, RACK_LOCAL, 2721 bytes)
+20/03/12 10:59:53 INFO storage.BlockManagerInfo: Added broadcast_6_piece0 in memory on 192.168.222.177:44896 (size: 34.1 KB, free: 267.2 MB)
+20/03/12 10:59:55 INFO storage.BlockManagerInfo: Added broadcast_5_piece0 in memory on 192.168.222.177:44896 (size: 1915.4 KB, free: 265.3 MB)
+20/03/12 10:59:55 INFO storage.BlockManagerInfo: Added broadcast_1_piece0 in memory on 192.168.222.177:44896 (size: 24.7 KB, free: 265.3 MB)
+20/03/12 10:59:58 INFO scheduler.DAGScheduler: ResultStage 1 (parquet at NativeMethodAccessorImpl.java:-2) finished in 4.550 s
+20/03/12 10:59:58 INFO scheduler.DAGScheduler: Job 1 finished: parquet at NativeMethodAccessorImpl.java:-2, took 4.638014 s
+20/03/12 10:59:58 INFO scheduler.TaskSetManager: Finished task 0.0 in stage 1.0 (TID 2) in 4554 ms on 192.168.222.177 (executor 1) (1/1)
+20/03/12 10:59:58 INFO cluster.YarnScheduler: Removed TaskSet 1.0, whose tasks have all completed, from pool 
+20/03/12 10:59:58 INFO hadoop.ParquetFileReader: Initiating action with parallelism: 5
+SLF4J: Class path contains multiple SLF4J bindings.
+SLF4J: Found binding in [jar:file:/usr/lib/parquet/lib/parquet-hadoop-bundle-1.5.0-cdh5.13.0.jar!/shaded/parquet/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J: Found binding in [jar:file:/usr/lib/parquet/lib/parquet-format-2.1.0-cdh5.13.0.jar!/shaded/parquet/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J: Found binding in [jar:file:/usr/lib/parquet/lib/parquet-pig-bundle-1.5.0-cdh5.13.0.jar!/shaded/parquet/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J: Found binding in [jar:file:/usr/lib/hive/lib/hive-jdbc-1.1.0-cdh5.13.0-standalone.jar!/shaded/parquet/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J: Found binding in [jar:file:/usr/lib/hive/lib/hive-exec-1.1.0-cdh5.13.0.jar!/shaded/parquet/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J: See http://www.slf4j.org/codes.html#multiple_bindings for an explanation.
+SLF4J: Actual binding is of type [shaded.parquet.org.slf4j.helpers.NOPLoggerFactory]
+20/03/12 10:59:58 INFO storage.BlockManagerInfo: Removed broadcast_6_piece0 on 192.168.222.177:48639 in memory (size: 34.1 KB, free: 532.6 MB)
+20/03/12 10:59:58 INFO storage.BlockManagerInfo: Removed broadcast_6_piece0 on 192.168.222.177:44896 in memory (size: 34.1 KB, free: 265.3 MB)
+20/03/12 10:59:58 INFO spark.ContextCleaner: Cleaned accumulator 23
+20/03/12 10:59:58 INFO storage.BlockManagerInfo: Removed broadcast_4_piece0 on 192.168.222.177:48639 in memory (size: 4.0 KB, free: 532.6 MB)
+20/03/12 10:59:58 INFO storage.BlockManagerInfo: Removed broadcast_4_piece0 on 192.168.222.177:44896 in memory (size: 4.0 KB, free: 265.3 MB)
+20/03/12 10:59:58 INFO storage.BlockManagerInfo: Removed broadcast_4_piece0 on 192.168.222.177:54690 in memory (size: 4.0 KB, free: 267.2 MB)
+20/03/12 10:59:58 INFO spark.ContextCleaner: Cleaned accumulator 22
+20/03/12 10:59:59 WARN hdfs.DFSClient: Caught exception 
+java.lang.InterruptedException
+	at java.lang.Object.wait(Native Method)
+	at java.lang.Thread.join(Thread.java:1281)
+	at java.lang.Thread.join(Thread.java:1355)
+	at org.apache.hadoop.hdfs.DFSOutputStream$DataStreamer.closeResponder(DFSOutputStream.java:967)
+	at org.apache.hadoop.hdfs.DFSOutputStream$DataStreamer.endBlock(DFSOutputStream.java:705)
+	at org.apache.hadoop.hdfs.DFSOutputStream$DataStreamer.run(DFSOutputStream.java:894)
+20/03/12 10:59:59 INFO datasources.DefaultWriterContainer: Job job_202003121059_0000 committed.
+20/03/12 10:59:59 INFO parquet.ParquetRelation: Listing hdfs://quickstart.cloudera:8020/OutputFiles/dailyProductRevenueSorted on driver
+20/03/12 10:59:59 INFO parquet.ParquetRelation: Listing hdfs://quickstart.cloudera:8020/OutputFiles/dailyProductRevenueSorted on driver
+20/03/12 10:59:59 INFO storage.MemoryStore: Block broadcast_7 stored as values in memory (estimated size 207.4 KB, free 510.7 MB)
+20/03/12 10:59:59 INFO storage.MemoryStore: Block broadcast_7_piece0 stored as bytes in memory (estimated size 24.6 KB, free 510.7 MB)
+20/03/12 10:59:59 INFO storage.BlockManagerInfo: Added broadcast_7_piece0 in memory on 192.168.222.177:48639 (size: 24.6 KB, free: 532.6 MB)
+20/03/12 10:59:59 INFO spark.SparkContext: Created broadcast 7 from showString at NativeMethodAccessorImpl.java:-2
+20/03/12 10:59:59 INFO storage.MemoryStore: Block broadcast_8 stored as values in memory (estimated size 212.3 KB, free 510.5 MB)
+20/03/12 10:59:59 INFO storage.MemoryStore: Block broadcast_8_piece0 stored as bytes in memory (estimated size 24.7 KB, free 510.5 MB)
+20/03/12 10:59:59 INFO storage.BlockManagerInfo: Added broadcast_8_piece0 in memory on 192.168.222.177:48639 (size: 24.7 KB, free: 532.6 MB)
+20/03/12 10:59:59 INFO spark.SparkContext: Created broadcast 8 from showString at NativeMethodAccessorImpl.java:-2
+20/03/12 10:59:59 INFO storage.MemoryStore: Block broadcast_9 stored as values in memory (estimated size 207.4 KB, free 510.3 MB)
+20/03/12 11:00:00 INFO storage.MemoryStore: Block broadcast_9_piece0 stored as bytes in memory (estimated size 24.6 KB, free 510.3 MB)
+20/03/12 11:00:00 INFO storage.BlockManagerInfo: Added broadcast_9_piece0 in memory on 192.168.222.177:48639 (size: 24.6 KB, free: 532.5 MB)
+20/03/12 11:00:00 INFO spark.SparkContext: Created broadcast 9 from showString at NativeMethodAccessorImpl.java:-2
+20/03/12 11:00:00 INFO storage.MemoryStore: Block broadcast_10 stored as values in memory (estimated size 212.4 KB, free 510.1 MB)
+20/03/12 11:00:00 INFO storage.MemoryStore: Block broadcast_10_piece0 stored as bytes in memory (estimated size 24.7 KB, free 510.0 MB)
+20/03/12 11:00:00 INFO storage.BlockManagerInfo: Added broadcast_10_piece0 in memory on 192.168.222.177:48639 (size: 24.7 KB, free: 532.5 MB)
+20/03/12 11:00:00 INFO spark.SparkContext: Created broadcast 10 from showString at NativeMethodAccessorImpl.java:-2
+20/03/12 11:00:00 INFO mapred.FileInputFormat: Total input paths to process : 1
+20/03/12 11:00:00 INFO spark.SparkContext: Starting job: run at ThreadPoolExecutor.java:1145
+20/03/12 11:00:00 INFO scheduler.DAGScheduler: Got job 2 (run at ThreadPoolExecutor.java:1145) with 2 output partitions
+20/03/12 11:00:00 INFO scheduler.DAGScheduler: Final stage: ResultStage 2 (run at ThreadPoolExecutor.java:1145)
+20/03/12 11:00:00 INFO scheduler.DAGScheduler: Parents of final stage: List()
+20/03/12 11:00:00 INFO scheduler.DAGScheduler: Missing parents: List()
+20/03/12 11:00:00 INFO scheduler.DAGScheduler: Submitting ResultStage 2 (MapPartitionsRDD[23] at run at ThreadPoolExecutor.java:1145), which has no missing parents
+20/03/12 11:00:00 INFO storage.MemoryStore: Block broadcast_11 stored as values in memory (estimated size 7.7 KB, free 510.0 MB)
+20/03/12 11:00:00 INFO storage.MemoryStore: Block broadcast_11_piece0 stored as bytes in memory (estimated size 4.0 KB, free 510.0 MB)
+20/03/12 11:00:00 INFO storage.BlockManagerInfo: Added broadcast_11_piece0 in memory on 192.168.222.177:48639 (size: 4.0 KB, free: 532.5 MB)
+20/03/12 11:00:00 INFO spark.SparkContext: Created broadcast 11 from broadcast at DAGScheduler.scala:1004
+20/03/12 11:00:00 INFO scheduler.DAGScheduler: Submitting 2 missing tasks from ResultStage 2 (MapPartitionsRDD[23] at run at ThreadPoolExecutor.java:1145) (first 15 tasks are for partitions Vector(0, 1))
+20/03/12 11:00:00 INFO cluster.YarnScheduler: Adding task set 2.0 with 2 tasks
+20/03/12 11:00:00 INFO scheduler.TaskSetManager: Starting task 0.0 in stage 2.0 (TID 3, 192.168.222.177, executor 1, partition 0, RACK_LOCAL, 2177 bytes)
+20/03/12 11:00:00 INFO scheduler.TaskSetManager: Starting task 1.0 in stage 2.0 (TID 4, 192.168.222.177, executor 2, partition 1, RACK_LOCAL, 2177 bytes)
+20/03/12 11:00:00 INFO storage.BlockManagerInfo: Added broadcast_11_piece0 in memory on 192.168.222.177:44896 (size: 4.0 KB, free: 265.3 MB)
+20/03/12 11:00:00 INFO storage.BlockManagerInfo: Added broadcast_11_piece0 in memory on 192.168.222.177:54690 (size: 4.0 KB, free: 267.2 MB)
+20/03/12 11:00:00 INFO storage.BlockManagerInfo: Added broadcast_10_piece0 in memory on 192.168.222.177:44896 (size: 24.7 KB, free: 265.3 MB)
+20/03/12 11:00:00 INFO storage.BlockManagerInfo: Added broadcast_10_piece0 in memory on 192.168.222.177:54690 (size: 24.7 KB, free: 267.2 MB)
+20/03/12 11:00:02 INFO scheduler.TaskSetManager: Finished task 0.0 in stage 2.0 (TID 3) in 2333 ms on 192.168.222.177 (executor 1) (1/2)
+20/03/12 11:00:02 INFO scheduler.DAGScheduler: ResultStage 2 (run at ThreadPoolExecutor.java:1145) finished in 2.330 s
+20/03/12 11:00:02 INFO scheduler.DAGScheduler: Job 2 finished: run at ThreadPoolExecutor.java:1145, took 2.361057 s
+20/03/12 11:00:02 INFO scheduler.TaskSetManager: Finished task 1.0 in stage 2.0 (TID 4) in 2340 ms on 192.168.222.177 (executor 2) (2/2)
+20/03/12 11:00:02 INFO cluster.YarnScheduler: Removed TaskSet 2.0, whose tasks have all completed, from pool 
+20/03/12 11:00:02 INFO storage.MemoryStore: Block broadcast_12 stored as values in memory (estimated size 21.3 MB, free 488.8 MB)
+20/03/12 11:00:03 INFO storage.MemoryStore: Block broadcast_12_piece0 stored as bytes in memory (estimated size 1915.4 KB, free 486.9 MB)
+20/03/12 11:00:03 INFO storage.BlockManagerInfo: Added broadcast_12_piece0 in memory on 192.168.222.177:48639 (size: 1915.4 KB, free: 530.6 MB)
+20/03/12 11:00:03 INFO spark.SparkContext: Created broadcast 12 from run at ThreadPoolExecutor.java:1145
+20/03/12 11:00:03 INFO mapred.FileInputFormat: Total input paths to process : 1
+20/03/12 11:00:03 INFO spark.SparkContext: Starting job: showString at NativeMethodAccessorImpl.java:-2
+20/03/12 11:00:03 INFO scheduler.DAGScheduler: Got job 3 (showString at NativeMethodAccessorImpl.java:-2) with 1 output partitions
+20/03/12 11:00:03 INFO scheduler.DAGScheduler: Final stage: ResultStage 3 (showString at NativeMethodAccessorImpl.java:-2)
+20/03/12 11:00:03 INFO scheduler.DAGScheduler: Parents of final stage: List()
+20/03/12 11:00:03 INFO scheduler.DAGScheduler: Missing parents: List()
+20/03/12 11:00:03 INFO scheduler.DAGScheduler: Submitting ResultStage 3 (MapPartitionsRDD[35] at showString at NativeMethodAccessorImpl.java:-2), which has no missing parents
+20/03/12 11:00:03 INFO storage.MemoryStore: Block broadcast_13 stored as values in memory (estimated size 16.7 KB, free 486.9 MB)
+20/03/12 11:00:03 INFO storage.MemoryStore: Block broadcast_13_piece0 stored as bytes in memory (estimated size 7.7 KB, free 486.9 MB)
+20/03/12 11:00:03 INFO storage.BlockManagerInfo: Added broadcast_13_piece0 in memory on 192.168.222.177:48639 (size: 7.7 KB, free: 530.6 MB)
+20/03/12 11:00:03 INFO spark.SparkContext: Created broadcast 13 from broadcast at DAGScheduler.scala:1004
+20/03/12 11:00:03 INFO scheduler.DAGScheduler: Submitting 1 missing tasks from ResultStage 3 (MapPartitionsRDD[35] at showString at NativeMethodAccessorImpl.java:-2) (first 15 tasks are for partitions Vector(0))
+20/03/12 11:00:03 INFO cluster.YarnScheduler: Adding task set 3.0 with 1 tasks
+20/03/12 11:00:03 INFO scheduler.TaskSetManager: Starting task 0.0 in stage 3.0 (TID 5, 192.168.222.177, executor 2, partition 0, RACK_LOCAL, 2676 bytes)
+20/03/12 11:00:03 INFO storage.BlockManagerInfo: Added broadcast_13_piece0 in memory on 192.168.222.177:54690 (size: 7.7 KB, free: 267.2 MB)
+20/03/12 11:00:03 INFO storage.BlockManagerInfo: Added broadcast_12_piece0 in memory on 192.168.222.177:54690 (size: 1915.4 KB, free: 265.3 MB)
+20/03/12 11:00:04 INFO storage.BlockManagerInfo: Added broadcast_8_piece0 in memory on 192.168.222.177:54690 (size: 24.7 KB, free: 265.3 MB)
+20/03/12 11:00:06 INFO scheduler.DAGScheduler: ResultStage 3 (showString at NativeMethodAccessorImpl.java:-2) finished in 2.863 s
+20/03/12 11:00:06 INFO scheduler.DAGScheduler: Job 3 finished: showString at NativeMethodAccessorImpl.java:-2, took 2.908030 s
+20/03/12 11:00:06 INFO scheduler.TaskSetManager: Finished task 0.0 in stage 3.0 (TID 5) in 2854 ms on 192.168.222.177 (executor 2) (1/1)
+20/03/12 11:00:06 INFO cluster.YarnScheduler: Removed TaskSet 3.0, whose tasks have all completed, from pool 
++---------------------+---------------------+---------------+
+|order_date           |order_item_product_id|product_revenue|
++---------------------+---------------------+---------------+
+|2013-07-25 00:00:00.0|1004                 |5599.72        |
+|2013-07-25 00:00:00.0|191                  |5099.49        |
+|2013-07-25 00:00:00.0|957                  |4499.7         |
+|2013-07-25 00:00:00.0|365                  |3359.44        |
+|2013-07-25 00:00:00.0|1073                 |2999.85        |
+|2013-07-25 00:00:00.0|1014                 |2798.88        |
+|2013-07-25 00:00:00.0|403                  |1949.85        |
+|2013-07-25 00:00:00.0|502                  |1650.0         |
+|2013-07-25 00:00:00.0|627                  |1079.73        |
+|2013-07-25 00:00:00.0|226                  |599.99         |
+|2013-07-25 00:00:00.0|24                   |319.96         |
+|2013-07-25 00:00:00.0|821                  |207.96         |
+|2013-07-25 00:00:00.0|625                  |199.99         |
+|2013-07-25 00:00:00.0|705                  |119.99         |
+|2013-07-25 00:00:00.0|572                  |119.97         |
+|2013-07-25 00:00:00.0|666                  |109.99         |
+|2013-07-25 00:00:00.0|725                  |108.0          |
+|2013-07-25 00:00:00.0|134                  |100.0          |
+|2013-07-25 00:00:00.0|906                  |99.96          |
+|2013-07-25 00:00:00.0|828                  |95.97          |
++---------------------+---------------------+---------------+
+only showing top 20 rows
+
+20/03/12 11:00:06 INFO spark.SparkContext: Invoking stop() from shutdown hook
+20/03/12 11:00:06 INFO handler.ContextHandler: stopped o.s.j.s.ServletContextHandler{/static/sql,null}
+20/03/12 11:00:06 INFO handler.ContextHandler: stopped o.s.j.s.ServletContextHandler{/SQL/execution/json,null}
+20/03/12 11:00:06 INFO handler.ContextHandler: stopped o.s.j.s.ServletContextHandler{/SQL/execution,null}
+20/03/12 11:00:06 INFO handler.ContextHandler: stopped o.s.j.s.ServletContextHandler{/SQL/json,null}
+20/03/12 11:00:06 INFO handler.ContextHandler: stopped o.s.j.s.ServletContextHandler{/SQL,null}
+20/03/12 11:00:06 INFO handler.ContextHandler: stopped o.s.j.s.ServletContextHandler{/metrics/json,null}
+20/03/12 11:00:06 INFO handler.ContextHandler: stopped o.s.j.s.ServletContextHandler{/stages/stage/kill,null}
+20/03/12 11:00:06 INFO handler.ContextHandler: stopped o.s.j.s.ServletContextHandler{/api,null}
+20/03/12 11:00:06 INFO handler.ContextHandler: stopped o.s.j.s.ServletContextHandler{/,null}
+20/03/12 11:00:06 INFO handler.ContextHandler: stopped o.s.j.s.ServletContextHandler{/static,null}
+20/03/12 11:00:06 INFO handler.ContextHandler: stopped o.s.j.s.ServletContextHandler{/executors/threadDump/json,null}
+20/03/12 11:00:06 INFO handler.ContextHandler: stopped o.s.j.s.ServletContextHandler{/executors/threadDump,null}
+20/03/12 11:00:06 INFO handler.ContextHandler: stopped o.s.j.s.ServletContextHandler{/executors/json,null}
+20/03/12 11:00:06 INFO handler.ContextHandler: stopped o.s.j.s.ServletContextHandler{/executors,null}
+20/03/12 11:00:06 INFO handler.ContextHandler: stopped o.s.j.s.ServletContextHandler{/environment/json,null}
+20/03/12 11:00:06 INFO handler.ContextHandler: stopped o.s.j.s.ServletContextHandler{/environment,null}
+20/03/12 11:00:06 INFO handler.ContextHandler: stopped o.s.j.s.ServletContextHandler{/storage/rdd/json,null}
+20/03/12 11:00:06 INFO handler.ContextHandler: stopped o.s.j.s.ServletContextHandler{/storage/rdd,null}
+20/03/12 11:00:06 INFO handler.ContextHandler: stopped o.s.j.s.ServletContextHandler{/storage/json,null}
+20/03/12 11:00:06 INFO handler.ContextHandler: stopped o.s.j.s.ServletContextHandler{/storage,null}
+20/03/12 11:00:06 INFO handler.ContextHandler: stopped o.s.j.s.ServletContextHandler{/stages/pool/json,null}
+20/03/12 11:00:06 INFO handler.ContextHandler: stopped o.s.j.s.ServletContextHandler{/stages/pool,null}
+20/03/12 11:00:06 INFO handler.ContextHandler: stopped o.s.j.s.ServletContextHandler{/stages/stage/json,null}
+20/03/12 11:00:06 INFO handler.ContextHandler: stopped o.s.j.s.ServletContextHandler{/stages/stage,null}
+20/03/12 11:00:06 INFO handler.ContextHandler: stopped o.s.j.s.ServletContextHandler{/stages/json,null}
+20/03/12 11:00:06 INFO handler.ContextHandler: stopped o.s.j.s.ServletContextHandler{/stages,null}
+20/03/12 11:00:06 INFO handler.ContextHandler: stopped o.s.j.s.ServletContextHandler{/jobs/job/json,null}
+20/03/12 11:00:06 INFO handler.ContextHandler: stopped o.s.j.s.ServletContextHandler{/jobs/job,null}
+20/03/12 11:00:06 INFO handler.ContextHandler: stopped o.s.j.s.ServletContextHandler{/jobs/json,null}
+20/03/12 11:00:06 INFO handler.ContextHandler: stopped o.s.j.s.ServletContextHandler{/jobs,null}
+20/03/12 11:00:06 INFO ui.SparkUI: Stopped Spark web UI at http://192.168.222.177:4043
+20/03/12 11:00:06 INFO cluster.YarnClientSchedulerBackend: Interrupting monitor thread
+20/03/12 11:00:06 ERROR scheduler.LiveListenerBus: SparkListenerBus has already stopped! Dropping event SparkListenerExecutorMetricsUpdate(2,WrappedArray())
+20/03/12 11:00:06 INFO cluster.YarnClientSchedulerBackend: Shutting down all executors
+20/03/12 11:00:06 INFO cluster.YarnClientSchedulerBackend: Asking each executor to shut down
+20/03/12 11:00:06 INFO cluster.YarnClientSchedulerBackend: Stopped
+20/03/12 11:00:06 INFO spark.MapOutputTrackerMasterEndpoint: MapOutputTrackerMasterEndpoint stopped!
+20/03/12 11:00:06 INFO storage.MemoryStore: MemoryStore cleared
+20/03/12 11:00:06 INFO storage.BlockManager: BlockManager stopped
+20/03/12 11:00:06 INFO storage.BlockManagerMaster: BlockManagerMaster stopped
+20/03/12 11:00:06 INFO scheduler.OutputCommitCoordinator$OutputCommitCoordinatorEndpoint: OutputCommitCoordinator stopped!
+20/03/12 11:00:06 INFO spark.SparkContext: Successfully stopped SparkContext
+20/03/12 11:00:06 INFO util.ShutdownHookManager: Shutdown hook called
+20/03/12 11:00:06 INFO util.ShutdownHookManager: Deleting directory /tmp/spark-1b40cb6d-e611-4787-a875-5cafc16f6f69
+20/03/12 11:00:06 INFO util.ShutdownHookManager: Deleting directory /tmp/spark-1b40cb6d-e611-4787-a875-5cafc16f6f69/pyspark-fcfaf15e-d4ca-4691-bb70-b5b3ea1cea55
+20/03/12 11:00:06 INFO remote.RemoteActorRefProvider$RemotingTerminator: Shutting down remote daemon.
+20/03/12 11:00:06 INFO remote.RemoteActorRefProvider$RemotingTerminator: Remote daemon shut down; proceeding with flushing remote transports.
+[cloudera@quickstart retail]$ 
+[cloudera@quickstart retail]$ hdfs dfs -ls /OutputFiles/dailyProductRevenueSorted
+Found 4 items
+-rw-r--r--   1 cloudera supergroup          0 2020-03-12 10:59 /OutputFiles/dailyProductRevenueSorted/_SUCCESS
+-rw-r--r--   1 cloudera supergroup        464 2020-03-12 10:59 /OutputFiles/dailyProductRevenueSorted/_common_metadata
+-rw-r--r--   1 cloudera supergroup        896 2020-03-12 10:59 /OutputFiles/dailyProductRevenueSorted/_metadata
+-rw-r--r--   1 cloudera supergroup      24869 2020-03-12 10:59 /OutputFiles/dailyProductRevenueSorted/part-r-00000-fa8ed030-601e-423f-a69d-4732cd73f227.gz.parquet
+[cloudera@quickstart retail]$ ]$ 
+bash: ]$: command not found
+[cloudera@quickstart retail]$ 
