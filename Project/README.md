@@ -26,9 +26,15 @@ slppp6.intermind.net - - [01/Aug/1995:00:00:11 -0400] "GET /history/skylab/skyla
 Each field	meaning :
 
 remotehost -	Remote hostname (or IP number if DNS hostname is not available or if DNSLookup is off).
+
 rfc931 -	The remote logname of the user if at all it is present.
+
 authuser -	The username of the remote user after authentication by the HTTP server.
+
 [date] -	Date and time of the request.
+
 "request"	- The request, exactly as it came from the browser or client.
+
 status -	The HTTP status code the server sent back to the client.
+
 bytes -	The number of bytes (Content-Length) transferred to the client.
