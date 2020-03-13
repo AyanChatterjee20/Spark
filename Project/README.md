@@ -10,7 +10,7 @@ Found 2 items
 
 
 
-Please find the random 10 records below : 
+Please find the random 10 records below of the dataset: 
 
 [cloudera@quickstart python]$ hdfs dfs -cat /InputFiles/Spark/access* | head
 
@@ -36,7 +36,7 @@ slppp6.intermind.net - - [01/Aug/1995:00:00:11 -0400] "GET /history/skylab/skyla
 
 
 
-Each field	meaning :
+Each field	meaning for the each record:
 
 remotehost -	Remote hostname (or IP number if DNS hostname is not available or if DNSLookup is off).
 
