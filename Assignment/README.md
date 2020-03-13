@@ -1,7 +1,6 @@
-Here we are working with particulary 2 data set "orders" and "order_items" . 
+Here we are working with particulary 3 data set **orders** , **order_items** and **products**. 
 
 Please find the below field description of the dataset ***orders*** :
-
 
 | Field| Type|
 |---|---|
@@ -51,3 +50,13 @@ Details of dataset **orders** below :
 10,5,365,5,299.95,59.99
 ```
 
+Please find the below field description of the dataset ***products*** :
+
+| Field               | Type         |
+|---|---|
+| product_id          | int(11)      |
+| product_category_id | int(11)      |
+| product_name        | varchar(45)  |
+| product_description | varchar(255) |
+| product_price       | float        |
+| product_image       | varchar(255) |
